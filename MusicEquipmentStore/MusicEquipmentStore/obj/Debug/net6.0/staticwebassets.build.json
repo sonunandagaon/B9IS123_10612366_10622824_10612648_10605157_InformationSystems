@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LXabr3dJ3gTnepDCgM7YCa7qvBlfq6wj0EYCPY4XLkk=",
+  "Hash": "WPU3Nd5iS0kW5GQTTPglcMiUFJOJdbTgW4Je2emHVmQ=",
   "Source": "MusicEquipmentStore",
   "BasePath": "_content/MusicEquipmentStore",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\DBS\\Classes\\Programming for Information Systems\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\wwwroot\\css\\style.css",
+      "SourceId": "MusicEquipmentStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DBS\\Classes\\Programming for Information Systems\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\wwwroot\\",
+      "BasePath": "_content/MusicEquipmentStore",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "D:\\DBS\\Classes\\Programming for Information Systems\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\wwwroot\\favicon.ico",
