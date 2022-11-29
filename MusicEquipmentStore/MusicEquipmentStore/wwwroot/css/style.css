@@ -1,7 +1,8 @@
-﻿.material-symbols-outlined {
+﻿/*Navbar*/
+
+.material-symbols-outlined {
     margin-right: auto;
 }
-
 
 .nav-logo {
     color: #000;
@@ -54,4 +55,89 @@
 
 .navbar-nav-align {
     margin-left: auto !important;
+}
+
+/*Footer*/
+
+.pro-container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.pro-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pro-ul {
+    list-style: none;
+    padding-left: 0%;
+}
+
+.pro-footer {
+    background-color: #24262b;
+    padding: 50px 0;
+}
+
+.pro-footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.pro-footer-col h4 {
+font-size: 18px;
+color: #ffffff;
+text-transform: capitalize;
+font-weight: 500;
+margin-bottom: 35px;
+position: relative;
+}
+
+.pro-footer-col h4::before {
+content: '';
+position: absolute;
+left: 0;
+bottom: -10px;
+background-color: #e91e63;
+height: 2px;
+box-sizing: border-box;
+width: 50px;
+}
+
+.pro-footer-col ul li:not(:last-child) {
+margin-bottom: 10px;
+}
+
+.pro-footer-col ul li a {
+font-size: 16px;
+color: #ffffff;
+text-transform: capitalize;
+text-decoration: none;
+font-weight: 300;
+color: #bbbbbb;
+display: block;
+transition: all 0.3s ease;
+}
+
+.pro-footer-col ul li a:hover {
+color: #ffffff;
+padding-left: 10px;
+}
+
+.pro-footer-col .social-links a {
+display: inline-block;
+height: 40px;
+width: 40px;
+background-color: rgba(255, 255, 255, 0.2);
+margin: 0 10px 10px 0;
+text-align: center;
+line-height: 40px;
+border-radius: 50%;
+color: #ffffff;
+transition: all 0.5s ease;
+}
+
+.pro-footer-col .social-links a:hover {
+color: #24262b;
+background-color: #ffffff;
 }
