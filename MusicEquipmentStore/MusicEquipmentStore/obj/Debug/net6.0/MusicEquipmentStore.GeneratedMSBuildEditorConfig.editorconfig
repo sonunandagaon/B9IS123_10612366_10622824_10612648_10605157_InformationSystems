@@ -19,8 +19,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Home/Product.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Shared/Error.cshtml]
