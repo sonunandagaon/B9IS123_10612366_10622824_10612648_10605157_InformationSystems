@@ -142,49 +142,51 @@ color: #24262b;
 background-color: #ffffff;
 }
 
+/*Hero section*/
 
-#hero {
-    /* background-image: url("file:///D:/DBS/Classes/Web%20and%20Mobile%20Technologies/B9IS124_10508676_10612366_fitnessBusiness/fitnessBusiness/html/images/hero.png"); */
-    background-image: url("../images/hero.jpg");
-    height: 90vh;
+/*.hero-section {
     width: 100%;
-    background-size: cover;
-    background-position: top 0% right 0px;
-    padding: 0 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    height: 80vh;
+    position: relative !important;
 }
 
-    #hero h4 {
-        padding-bottom: 15px;
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+}
+
+.hero-section-large-text {
+    z-index: 1;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 60px;
+    line-height: 50px;
+    font-weight: 300;
+    color: #ffffff70;
+    position: absolute;
+    bottom: 40px;
+    right: 50%;
+    width: 29vw;
+    animation: heroanimation 4s infinite cubic-bezier(0.42, 0, 0, 1.94);
+}
+
+@keyframes heroanimation {
+    from {
+        transform: translateX(-400px);
+        opacity: 0;
     }
 
-    #hero h1 {
-        /* color:#0aaea3; */
-        /* color:#088178; */
-        color: #0cc2a4c2;
+    to {
+        transform: translateX(0px);
+        opacity: 1;
     }
-
-    #hero button {
-        background-image: url("../images/button.png");
-        background-color: transparent;
-        /* color: #1d8e86; */
-        /* color:#28bcb2; */
-        /* color:#088178; */
-        color: bisque;
-        border: 0;
-        padding: 15px 80px 15px 65px;
-        background-repeat: no-repeat;
-        cursor: pointer;
-        font-weight: 700;
-        font-size: 15px;
-    }
+}*/
 
 /* last section */
 
-.mid-sec {
+/*.mid-sec {
     padding-top: 100px;
     padding-bottom: 100px;
 }
@@ -195,11 +197,11 @@ background-color: #ffffff;
     background-position: 50% 50%;
     background-size: cover;
     background-attachment: fixed;
-}
+}*/
 
 /*------navbar-------*/
 
-.nav-container {
+/*.nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -269,3 +271,4 @@ background-color: #ffffff;
     color: #222 !important;
     font-weight: 600 !important;
 }
+*/
