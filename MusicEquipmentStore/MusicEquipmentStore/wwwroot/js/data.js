@@ -125,3 +125,59 @@ const products = [
         video: "images/Equipment_Images/Trademill/f3-video_T.mp4"
     },
 ]
+
+//Display the details of the Products using JSON 
+
+function allProducts() {
+    a = document.getElementById("productGrid")
+    let x = ""
+    products.map((item, i) => {
+        if (i === 0 || i === 5) {
+            x = x + ` <div class="product-container" id="${item.name}" role="listitem">
+            <div class="image-wrap">`+
+                ` <div class="sale">
+                    Sale
+                </div>`+
+                `<div 
+                    style="background-image:url(${item.image[0]})"
+                    class="product-image product-image-size-m">
+                </div>
+                <div class="view-product-container">
+                                    <a style="opacity: 1;" class="view-button" onclick="productOnClick('${item.id}')">
+                                        <div class="button-small white-small">
+                                            <div>View Product</div>
+                                        </div>
+                                    </a>
+                                </div>
+            </div>
+            <div class="product4-content-wrap"><a class="size6-link">${item.name}</a>
+                <div 
+                    class="size4-text">${item.price}</div>
+            </div>
+        </div>`
+        }
+        else {
+            x = x + ` <div class="product-container" id="${item.name}" role="listitem">
+            <div class="image-wrap">
+            <div 
+                    style="background-image:url(${item.image[0]})"
+                    class="product-image product-image-size-m">
+                </div>
+                <div class="view-product-container">
+                                    <a style="opacity: 1;" class="view-button" onclick="productOnClick('${item.id}')">
+                                        <div class="button-small white-small">
+                                            <div>View Product</div>
+                                        </div>
+                                    </a>
+                                </div>
+            </div>
+            <div class="product4-content-wrap"><a class="size6-link">${item.name}</a>
+                <div 
+                    class="size4-text">${item.price}</div>
+            </div>
+        </div>`
+        }
+    })
+    a.innerHTML = x
+}
+
