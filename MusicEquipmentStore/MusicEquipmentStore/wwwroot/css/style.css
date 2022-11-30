@@ -57,6 +57,53 @@
     margin-left: auto !important;
 }
 
+/*------content section------- */
+
+.content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.content .section {
+        padding-right: 36px;
+        padding-left: 36px;
+        align-items: center;
+    }
+
+.headline-grid {
+    z-index: 1;
+    display: grid;
+    width: 100%;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.text-label {
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.7;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: 'Work Sans', sans-serif !important;
+}
+
+.text-content-size {
+    margin-bottom: 0px;
+}
+
+.text-content-size {
+    margin-top: 10px;
+    font-size: 30px;
+    line-height: 38px;
+    font-weight: 300;
+    text-transform: none;
+    font-family: 'Work Sans', sans-serif !important;
+}
+
 /*Footer*/
 
 .pro-container {
