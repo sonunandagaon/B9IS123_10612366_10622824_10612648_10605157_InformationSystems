@@ -141,3 +141,131 @@ transition: all 0.5s ease;
 color: #24262b;
 background-color: #ffffff;
 }
+
+
+#hero {
+    /* background-image: url("file:///D:/DBS/Classes/Web%20and%20Mobile%20Technologies/B9IS124_10508676_10612366_fitnessBusiness/fitnessBusiness/html/images/hero.png"); */
+    background-image: url("../images/hero.jpg");
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 0% right 0px;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+    #hero h4 {
+        padding-bottom: 15px;
+    }
+
+    #hero h1 {
+        /* color:#0aaea3; */
+        /* color:#088178; */
+        color: #0cc2a4c2;
+    }
+
+    #hero button {
+        background-image: url("../images/button.png");
+        background-color: transparent;
+        /* color: #1d8e86; */
+        /* color:#28bcb2; */
+        /* color:#088178; */
+        color: bisque;
+        border: 0;
+        padding: 15px 80px 15px 65px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 15px;
+    }
+
+/* last section */
+
+.mid-sec {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.mid-window {
+    height: 360px;
+    background-image: url(../images/hero1.jpg);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*------navbar-------*/
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 36px;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 1px solid #ebedee;
+}
+
+.dumble {
+    color: #e39191 !important;
+    padding-inline: 5px !important;
+    animation: rotation 3s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.nav-logo {
+    color: #000;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.navlink-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 0px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #222;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+}
+
+    .nav-link:hover {
+        color: #626265c1;
+        cursor: pointer;
+    }
+
+.cart-logo {
+    margin-inline: 10px;
+    color: #222 !important;
+    font-weight: 600 !important;
+}
