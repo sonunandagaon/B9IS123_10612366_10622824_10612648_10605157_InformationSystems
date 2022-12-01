@@ -13,10 +13,13 @@ namespace MusicEquipmentStore.Controllers
             return View();
         }
 
-        // GET: ProductsController/Details/5
-        public ActionResult Details(int id)
+        // GET: ProductsController/SearchProduct/5
+        public ActionResult SearchProduct(int id)
         {
-            return View();
+            ProductDAL _productDAL = new ProductDAL();
+            List<Product> list = new List<Product>();
+            list = _productDAL.GetProductById();
+            return View(list);
         }
 
         // GET: ProductsController/Create
