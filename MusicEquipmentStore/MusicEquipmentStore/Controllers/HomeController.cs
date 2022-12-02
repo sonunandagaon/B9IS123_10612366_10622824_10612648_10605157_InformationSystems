@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MusicEquipmentStore.Data;
 using MusicEquipmentStore.Models;
 using System.Diagnostics;
 
@@ -25,7 +26,24 @@ namespace MusicEquipmentStore.Controllers
 
         public IActionResult Login()
         {
-            return View();
+            EmployeeModel _empoyeeModel = new EmployeeModel();
+            return View(_empoyeeModel);
+        }
+
+        [HttpPost]
+        public IActionResult Login(EmployeeModel _empoyeeModel)
+        {
+            EmployeeContext _employeeContext = new EmployeeContext();
+            var status = _employeeContext.EmployeeLogin.Where(m => m.LoginId == _empoyeeModel.LoginId && m.Password == _empoyeeModel.Pasword).FirstOrDefault();
+            if (status == null)
+            {
+                ViewBag.LoginStatus = 0;
+            }
+            else
+            {
+                return RedirectToAction("SuccessPage", "Home");
+            }
+            return View(_empoyeeModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

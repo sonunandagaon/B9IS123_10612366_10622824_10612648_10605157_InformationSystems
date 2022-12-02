@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MusicEquipmentStore.DataAccessLayer;
+using MusicEquipmentStore.Models;
 
 namespace MusicEquipmentStore.Controllers
 {
@@ -17,8 +19,9 @@ namespace MusicEquipmentStore.Controllers
         public ActionResult SearchProduct(int id)
         {
             ProductDAL _productDAL = new ProductDAL();
-            List<Product> list = new List<Product>();
-            list = _productDAL.GetProductById();
+            List<Products> list = new List<Products>();
+            //list = _productDAL.GetProductById();
+            list = _productDAL.GetAllProducts();
             return View(list);
         }
 
