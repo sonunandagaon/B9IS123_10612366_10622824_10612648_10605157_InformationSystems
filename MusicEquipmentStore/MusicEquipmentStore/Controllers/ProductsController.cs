@@ -12,6 +12,9 @@ namespace MusicEquipmentStore.Controllers
         // GET: ProductsController
         public ActionResult Index()
         {
+            ProductDAL _ProductDAL = new ProductDAL();
+            List<Products> ProductList = new List<Products>();
+            ProductList = _ProductDAL.GetAllProducts();
             return View();
         }
 
