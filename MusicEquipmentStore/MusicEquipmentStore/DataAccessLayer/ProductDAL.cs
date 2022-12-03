@@ -38,6 +38,35 @@ namespace MusicEquipmentStore.DataAccessLayer
             }
             return ListOfProducts;
         }
+        public List<Products> GetProductById(int ProductId)
+        {
+            List<Products> ListOfProducts = new List<Products>();
+            using (SqlConnection cn = new SqlConnection(cnn))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetProductId", cn))
+                {
+                    cmd.Parameters.Add("@ProductId", SqlDbType.Int);
+                    cmd.Parameters["@ProductId"].Value = ProductId;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+
+                        if (cn.State == System.Data.ConnectionState.Closed)
+                        cn.Open();
+
+                    IDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ListOfProducts.Add(new Products()
+                        {
+                            ProductId = int.Parse(reader["ProductId"].ToString()),
+                            Productname = reader["Productname"].ToString()
+
+                        });
+                    }
+                }
+            }
+            return ListOfProducts;
+        }
     }
 
 }
