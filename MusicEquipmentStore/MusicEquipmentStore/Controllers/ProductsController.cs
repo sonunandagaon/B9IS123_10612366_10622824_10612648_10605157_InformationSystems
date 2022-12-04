@@ -2,12 +2,20 @@
 using Microsoft.AspNetCore.Mvc;
 using MusicEquipmentStore.DataAccessLayer;
 using MusicEquipmentStore.Models;
+using MusicEquipmentStore.Services;
+using Newtonsoft.Json;
 
 namespace MusicEquipmentStore.Controllers
 {
     public class ProductsController : Controller
     {
-      
+
+        IProductService _productService = null;
+
+        ProductsController(IProductService productService)
+        {
+            _productService = productService;
+        }
 
         // GET: ProductsController
         public ActionResult Index()
@@ -26,6 +34,47 @@ namespace MusicEquipmentStore.Controllers
             //list = _productDAL.GetProductById();
             list = _productDAL.GetAllProducts();
             return View(list);
+        }
+
+        [HttpPost]
+        public string SaveProductDetails(FileUpload file)
+        {
+            Products products = JsonConvert.DeserializeObject<Products>(file.Product);
+            if (file.File.Length > 0)
+            {
+                using (var ms= new MemoryStream())
+                {
+                    file.File.CopyTo(ms);
+                    var filebytes = ms.ToArray();
+                    products.Photo = filebytes;
+
+                    products = _productService.SaveProductDetails(products);
+
+                    if(products.ProductId > 0)
+                    {
+                        return "Saved";
+                    }
+                }
+            }
+            return "Failed";
+        }
+
+        [HttpGet]
+        public JsonResult GetProductsDetails()
+        {
+            var product = _productService.GetProductsDetails();
+            product.Photo = this.GetImage(Convert.ToBase64String(product.Photo));
+            return Json(product);
+        }
+
+        public byte[] GetImage(string base64string)
+        {
+            byte[] bytes = null;
+            if (!string.IsNullOrEmpty(base64string))
+            {
+                bytes = Convert.FromBase64String(base64string);
+            }
+            return bytes;
         }
 
         // GET: ProductsController/Create
