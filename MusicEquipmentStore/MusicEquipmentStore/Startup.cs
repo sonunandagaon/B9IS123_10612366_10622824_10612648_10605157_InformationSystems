@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using MusicEquipmentStore.Services;
 
 namespace MusicEquipmentStore
 {
@@ -16,7 +17,8 @@ namespace MusicEquipmentStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<DbContext>(d => d.UseSqlServer(Configuration.GetConnectionString("MusicStore")));s    
+            services.AddDbContext<DbContext>(d => d.UseSqlServer(Configuration.GetConnectionString("MusicStore")));
+            services.AddScoped<IProductService, ProductService>();
             services.AddControllersWithViews()
                 .AddJsonOptions(d =>
                 {
