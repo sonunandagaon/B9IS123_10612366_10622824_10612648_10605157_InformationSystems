@@ -2,11 +2,14 @@ using Microsoft.EntityFrameworkCore;
 
 using Microsoft.Extensions.DependencyInjection;
 using MusicEquipmentStore.Data;
+using MusicEquipmentStore.Models;
+using MusicEquipmentStore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //var connectionString = builder.Configuration.GetConnectionString("AppDb");
-builder.Services.AddDbContext<EmployeeContext>();
+builder.Services.AddDbContext<ProductsContext>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -26,7 +29,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Products}/{action=Index}/{id?}");
 
 app.Run();
 

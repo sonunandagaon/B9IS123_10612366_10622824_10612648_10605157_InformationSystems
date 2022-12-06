@@ -2,11 +2,13 @@
 
 namespace MusicEquipmentStore.Services
 {
-        public interface IProductService
-        {
-            Products SaveProductDetails(Products products);
+    public interface IProductService
+    {
+        ProductTable SaveProductDetails(ProductTable products);
 
-            Products GetProductsDetails();
-        }
-    
+        List<ProductTable> GetAllProducts();
+
+        ProductTable GetProductsDetails();
+    }
+
 }

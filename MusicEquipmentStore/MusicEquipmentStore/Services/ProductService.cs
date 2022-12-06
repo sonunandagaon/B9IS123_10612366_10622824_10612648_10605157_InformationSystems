@@ -1,27 +1,42 @@
-﻿using MusicEquipmentStore.Context;
+﻿
 using MusicEquipmentStore.Models;
 
 namespace MusicEquipmentStore.Services
 {
     public class ProductService : IProductService
     {
-        private readonly DatabaseContext _context;
+        //private readonly DatabaseContext _context;
 
-        public ProductService(DatabaseContext context)
+        protected ProductsContext _patternDbContext;
+        public ProductService(ProductsContext patternDbContext)
         {
-            _context = context;
-        }
-        public Products GetProductsDetails()
-        {
-            return _context.Products.SingleOrDefault();
+            _patternDbContext = patternDbContext;
         }
 
+        //public ProductService(DatabaseContext context)
+        //{
+        //    _context = context;
+        //}
 
-        public Products SaveProductDetails(Products products)
+        public ProductTable GetProductsDetails()
         {
-            _context.Products.Add(products);
-            _context.SaveChanges();
-            return products;
+            return _patternDbContext.ProductTables.SingleOrDefault();
+        }
+
+
+        public List<ProductTable> GetAllProducts()
+        {
+            //_context.Products.Add(prod);
+            //_context.SaveChanges();
+            //return result.ToList();
+            return _patternDbContext.ProductTables.ToList();
+        }
+
+        public ProductTable SaveProductDetails(ProductTable products)
+        {
+            _patternDbContext.ProductTables.Add(products);
+            _patternDbContext.SaveChanges();
+             return products;
         }
     }
 }

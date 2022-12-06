@@ -14,9 +14,9 @@ namespace MusicEquipmentStore.DataAccessLayer
             cnn = builder.GetSection("ConnectionString:DefaultConnection").Value;
 
         }
-        public List<Products> GetAllProducts()
+        public List<ProductTable> GetAllProducts()
         {
-            List<Products> ListOfProducts = new List<Products>();
+            List<ProductTable> ListOfProducts = new List<ProductTable>();
             using (SqlConnection cn = new SqlConnection(cnn))
             {
                 using (SqlCommand cmd = new SqlCommand("GetAllProducts", cn))
@@ -27,7 +27,7 @@ namespace MusicEquipmentStore.DataAccessLayer
                     IDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        ListOfProducts.Add(new Products()
+                        ListOfProducts.Add(new ProductTable()
                         {
                             ProductId = int.Parse(reader["ProductId"].ToString()),
                             Productname = reader["Productname"].ToString()
@@ -38,9 +38,9 @@ namespace MusicEquipmentStore.DataAccessLayer
             }
             return ListOfProducts;
         }
-        public List<Products> GetProductById(int ProductId)
+        public List<ProductTable> GetProductById(int ProductId)
         {
-            List<Products> ListOfProducts = new List<Products>();
+            List<ProductTable> ListOfProducts = new List<ProductTable>();
             using (SqlConnection cn = new SqlConnection(cnn))
             {
                 using (SqlCommand cmd = new SqlCommand("GetProductId", cn))
@@ -56,7 +56,7 @@ namespace MusicEquipmentStore.DataAccessLayer
                     IDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        ListOfProducts.Add(new Products()
+                        ListOfProducts.Add(new ProductTable()
                         {
                             ProductId = int.Parse(reader["ProductId"].ToString()),
                             Productname = reader["Productname"].ToString()

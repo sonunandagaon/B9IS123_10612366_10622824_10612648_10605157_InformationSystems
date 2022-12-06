@@ -10,9 +10,9 @@ namespace MusicEquipmentStore.Controllers
     public class ProductsController : Controller
     {
 
-        IProductService _productService = null;
+        private IProductService _productService;
 
-        ProductsController(IProductService productService)
+        public ProductsController(IProductService productService)
         {
             _productService = productService;
         }
@@ -20,50 +20,51 @@ namespace MusicEquipmentStore.Controllers
         // GET: ProductsController
         public ActionResult Index()
         {
-            ProductDAL _ProductDAL = new ProductDAL();
-            List<Products> ProductList = new List<Products>();
-            ProductList = _ProductDAL.GetAllProducts();
+            //ProductDAL _ProductDAL = new ProductDAL();
+            //List<ProductTable> ProductList = new List<ProductTable>();
+            _productService.GetProductsDetails();//_ProductDAL.GetAllProducts();
             return View();
         }
 
         // GET: ProductsController/SearchProduct/5
-        public ActionResult SearchProduct(int id)
-        {
-            ProductDAL _productDAL = new ProductDAL();
-            List<Products> list = new List<Products>();
-            //list = _productDAL.GetProductById();
-            list = _productDAL.GetAllProducts();
-            return View(list);
-        }
+        //public ActionResult SearchProduct(int id)
+        //{
+        //    ProductDAL _productDAL = new ProductDAL();
+        //    List<ProductTable> list = new List<ProductTable>();
+        //    //list = _productDAL.GetProductById();
+        //    list = _productDAL.GetAllProducts();
+        //    return View(list);
+        //}
 
-        [HttpPost]
-        public string SaveProductDetails(FileUpload file)
-        {
-            Products products = JsonConvert.DeserializeObject<Products>(file.Product);
-            if (file.File.Length > 0)
-            {
-                using (var ms= new MemoryStream())
-                {
-                    file.File.CopyTo(ms);
-                    var filebytes = ms.ToArray();
-                    products.Photo = filebytes;
+        //[HttpPost]
+        //public string SaveProductDetails(FileUpload file)
+        //{
+        //    ProductTable products = JsonConvert.DeserializeObject<ProductTable>(file.ProductTable);
+        //    if (file.File.Length > 0)
+        //    {
+        //        using (var ms= new MemoryStream())
+        //        {
+        //            file.File.CopyTo(ms);
+        //            var filebytes = ms.ToArray();
+        //            products.Productimage = filebytes;
 
-                    products = _productService.SaveProductDetails(products);
+        //            products = _productService.SaveProductDetails(products);
 
-                    if(products.ProductId > 0)
-                    {
-                        return "Saved";
-                    }
-                }
-            }
-            return "Failed";
-        }
+        //            if(products.ProductId > 0)
+        //            {
+        //}
+        //                return "Saved";
+        //            }
+        //        }
+        //    }
+        //    return "Failed";
 
         [HttpGet]
         public JsonResult GetProductsDetails()
         {
             var product = _productService.GetProductsDetails();
-            product.Photo = this.GetImage(Convert.ToBase64String(product.Photo));
+            product.Productimage = this.GetImage(Convert.ToBase64String(product.Productimage));
+            ViewBag.Base64String= this.GetImage(Convert.ToBase64String(product.Productimage));
             return Json(product);
         }
 

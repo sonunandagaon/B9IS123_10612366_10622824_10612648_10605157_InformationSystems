@@ -38,14 +38,14 @@
     <!-- hero section -->
     <div class="container-fluid">
         <div class="container">
-        <div class="row justify-content-md-center">
-        <div class="hero-section">
-            <video class="hero-video" autoplay="autoplay" muted loop>
-                <source src="~/images/video/pexels-ron-lach-7674509.mp4" type="video/mp4" />
-            </video>
-            <div class="hero-section-large-text">Equip your workouts..</div>
-        </div>
-        </div>
+            <div class="row justify-content-md-center">
+                <div class="hero-section">
+                    <video class="hero-video" autoplay="autoplay" muted loop>
+                        <source src="~/images/video/pexels-ron-lach-7674509.mp4" type="video/mp4" />
+                    </video>
+                    <div class="hero-section-large-text">Equip your workouts..</div>
+                </div>
+            </div>
         </div>
 
         <!-- content section -->
@@ -84,6 +84,13 @@
 
 
 
+
+</body>
+</html>
+
+@section scripts{
+    @*<link href="~/css/style.css" rel="stylesheet" asp-file-version="true" />*@
+
     <script>
         allProducts()
 
@@ -98,24 +105,19 @@
         }
 
 
-        $(document).ready(function (){
+        $(document).ready(function () {
 
             $.ajax({
-                type:"GET",
+                type: "GET",
                 url: "Products/GetProductsDetails",
-                success:function(data){
+                success: function (data) {
                     console.log(data);
                 }
-                error: function(data){
-                    console.log('Error ',data);
+                        error: function (data) {
+                    console.log('Error ', data);
                 }
             })
         });
     </script>
-</body>
+}
 
-@*@section scripts{
-    <link href="~/css/style.css" rel="stylesheet" asp-file-version="true" />
-    }*@
-
-</html>
