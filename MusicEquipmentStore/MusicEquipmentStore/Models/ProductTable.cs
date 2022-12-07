@@ -5,9 +5,9 @@ namespace MusicEquipmentStore.Models;
 
 public partial class ProductTable
 {
-    public int ProductId { get; set; }
-
-    public string? Productname { get; set; }
-
-    public byte[]? Productimage { get; set; }
+    public int Id { get; set; }
+    public string? Name { get; set; }
+    public string? Image { get; set; }
+    public string? Rating { get; set; }
+    public string? Price { get; set; }
 }
