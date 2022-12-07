@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MusicEquipmentStore.DataAccessLayer;
+//using MusicEquipmentStore.DataAccessLayer;
 using MusicEquipmentStore.Models;
 using MusicEquipmentStore.Services;
 using Newtonsoft.Json;
@@ -22,7 +22,7 @@ namespace MusicEquipmentStore.Controllers
         {
             //ProductDAL _ProductDAL = new ProductDAL();
             //List<ProductTable> ProductList = new List<ProductTable>();
-            _productService.GetProductsDetails();//_ProductDAL.GetAllProducts();
+            _productService.GetAllProducts();//_ProductDAL.GetAllProducts();
             return View();
         }
 
@@ -42,7 +42,7 @@ namespace MusicEquipmentStore.Controllers
         //    ProductTable products = JsonConvert.DeserializeObject<ProductTable>(file.ProductTable);
         //    if (file.File.Length > 0)
         //    {
-        //        using (var ms= new MemoryStream())
+        //        using (var ms = new MemoryStream())
         //        {
         //            file.File.CopyTo(ms);
         //            var filebytes = ms.ToArray();
@@ -50,21 +50,22 @@ namespace MusicEquipmentStore.Controllers
 
         //            products = _productService.SaveProductDetails(products);
 
-        //            if(products.ProductId > 0)
+        //            if (products.ProductId > 0)
         //            {
-        //}
-        //                return "Saved";
         //            }
+        //            return "Saved";
         //        }
         //    }
         //    return "Failed";
+        //}
+           
 
         [HttpGet]
-        public JsonResult GetProductsDetails()
+        public ActionResult GetProductsDetails()
         {
-            var product = _productService.GetProductsDetails();
-            product.Productimage = this.GetImage(Convert.ToBase64String(product.Productimage));
-            ViewBag.Base64String= this.GetImage(Convert.ToBase64String(product.Productimage));
+            var product = _productService.GetAllProducts();
+            //product.Image = this.GetImage(Convert.ToBase64String(product.Image));
+            //ViewBag.Base64String= this.GetImage(Convert.ToBase64String(product.Image));
             return Json(product);
         }
 
