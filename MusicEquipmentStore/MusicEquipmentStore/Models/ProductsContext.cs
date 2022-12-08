@@ -25,15 +25,24 @@ public partial class ProductsContext : DbContext
     {
         modelBuilder.Entity<ProductTable>(entity =>
         {
-            entity.HasKey(e => e.ProductId);
+            entity.HasKey(e => e.Id);
 
             entity.ToTable("Product_table");
 
-            entity.Property(e => e.Productimage).HasColumnName("productimage");
-            entity.Property(e => e.Productname)
+            entity.Property(e => e.Image).HasColumnName("Image");
+            entity.Property(e => e.Name)
                 .HasMaxLength(200)
                 .IsUnicode(false)
-                .HasColumnName("productname");
+                .HasColumnName("Name");
+            entity.Property(e => e.Rating)
+               .HasMaxLength(200)
+               .IsUnicode(false)
+               .HasColumnName("Rating");
+            entity.Property(e => e.Price)
+               .HasMaxLength(200)
+               .IsUnicode(false)
+               .HasColumnName("Price");
+
         });
 
         OnModelCreatingPartial(modelBuilder);
