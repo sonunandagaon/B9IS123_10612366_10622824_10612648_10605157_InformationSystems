@@ -21,5 +21,36 @@ namespace MusicEquipmentStore.APIController
 
         }
 
+        // GET: api/<CartController> 
+        [HttpGet("GetCartItems")]
+        public Cart GetCartItems()
+        {
+
+            SqlDataReader reader = null;
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+            int id = 1;
+            sqlCmd.CommandText = "Select * from Cart_table where Id=" + id + "";
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+            reader = sqlCmd.ExecuteReader();
+            Cart cart = null;
+            while (reader.Read())
+            {
+                cart = new Cart();
+                cart.ProductName = reader.GetValue(2).ToString();
+                cart.ProductId = Convert.ToInt32(reader.GetValue(2));
+                cart.ProductPrice = reader.GetValue(3).ToString();
+                cart.ProductQuantity = reader.GetValue(4).ToString();
+                cart.UserName = reader.GetValue(5).ToString();
+                cart.UserAddress = reader.GetValue(6).ToString();
+            }
+
+            return cart; 
+            
+            myConnection.Close();
+
+        }
+
+        }
     }
-}
