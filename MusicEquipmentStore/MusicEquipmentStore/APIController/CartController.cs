@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using MusicEquipmentStore.Models;
 using MusicEquipmentStore.Services;
 using System.Data;
@@ -54,5 +55,26 @@ namespace MusicEquipmentStore.APIController
 
         }
 
+        //POST api/<CartController>
+        [HttpPost("AddToCart")]
+        public void AddToCart(Cart cart)
+        {
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandText = "INSERT INTO Cart_table (Id,ProductName,ProductId,ProductPrice,Quantity,UserName,UserAddress)" +
+                "Values (@Id,@ProductName,@ProductId,@ProductPrice,@Quantity,@UserName,@UserAddress)";
+            sqlCmd.Connection = myConnection;
+            sqlCmd.Parameters.AddWithValue("@Id", cart.Id);
+            sqlCmd.Parameters.AddWithValue("@ProductName", cart.ProductName);
+            sqlCmd.Parameters.AddWithValue("@ProductId", cart.ProductId);
+            sqlCmd.Parameters.AddWithValue("@ProductPrice", cart.ProductPrice);
+            sqlCmd.Parameters.AddWithValue("@Quantity", cart.ProductQuantity);
+            sqlCmd.Parameters.AddWithValue("@UserName", cart.UserName);
+            sqlCmd.Parameters.AddWithValue("@UserAddress", cart.UserAddress);
+            myConnection.Open();
+            int rowInserted = sqlCmd.ExecuteNonQuery();
+            myConnection.Close();
         }
+
+    }
     }
