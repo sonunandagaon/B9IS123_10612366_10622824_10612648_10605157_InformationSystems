@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MusicEquipmentStore.Models;
 using MusicEquipmentStore.Services;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace MusicEquipmentStore.APIController
@@ -38,7 +40,7 @@ namespace MusicEquipmentStore.APIController
             while (reader.Read())
             {
                 cart = new Cart();
-                cart.ProductName = reader.GetValue(2).ToString();
+                cart.ProductName = reader.GetValue(1).ToString();
                 cart.ProductId = Convert.ToInt32(reader.GetValue(2));
                 cart.ProductPrice = reader.GetValue(3).ToString();
                 cart.ProductQuantity = reader.GetValue(4).ToString();
