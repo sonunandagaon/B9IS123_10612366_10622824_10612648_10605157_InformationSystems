@@ -77,7 +77,7 @@ namespace MusicEquipmentStore.APIController
         }
 
         // DELETE api/<CartController>/5
-        [HttpDelete]
+        [HttpDelete("DeleteCart/{id:int}/{username}")]
         public void Delete(int id, string username)
         {
             SqlCommand sqlCmd = new SqlCommand();
