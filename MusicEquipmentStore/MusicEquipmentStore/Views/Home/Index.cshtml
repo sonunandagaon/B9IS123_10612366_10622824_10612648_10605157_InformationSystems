@@ -65,10 +65,34 @@
 
         <!-- products section -->
 
+
         <div class="product">
             <div class="section">
                 <div>
                     <div role="list" id="productGrid" class="product-grid">
+                        <div class="product-container" id="Item1" role="listitem">
+                            <div class="image-wrap">
+
+                                <div class="sale">
+                                    Sale
+                                </div>
+                                <div style="background-image: url(../images/Equipment_Images/Dumbell/H_D.jpg)"
+                                     class="product-image product-image-size-m">
+
+                                </div>
+                                <div class="view-product-container">
+                                    <a style="opacity: 1;" class="view-button" onclick="productOnClick('${item.id}')">
+                                        <div class="button-small white-small">
+                                            <div>View Product</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product4-content-wrap">
+                                <a class="size6-link">item 1</a>
+                                <div class="size4-text">20</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -93,6 +117,11 @@
 
     <script>
         allProducts()
+
+        function productOnClick(x) {
+            localStorage.setItem("id", x)
+            //window.location = 'productView.html'
+        }
        
     </script>
 }
