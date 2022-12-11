@@ -33,32 +33,20 @@
     <script>
         
 
-        //function openNav() {
-        //    let navPop = document.getElementById("respNav")
-        //    if (navPop.className === "resp-nav") {
-        //        navPop.className = navPop.className + " clicked"
-        //    }
-        //    else {
-        //        navPop.className = "resp-nav"
-        //    }
-        //}
-
-
-        $(document).ready(function () {
-            $("#buttonSearch").click(function () {
-                alert("The paragraph was clicked.");
+        $("#buttonGet").click(function () {
+              
                 $.ajax({
                     type: "GET",
-                    url: "Products/GetProductsDetails",
-                    success: function (data) {
-                        alert("success")
-                        console.log(data);
+                    url: "http://localhost:5088/api/Cart/GetCartItems",
+                    data: data,
+                    success: function (res) {
+                        alert("success");
+                        console.log(res);
                     },
-                    error: function (data) {
-                        console.log('Error ', data);
+                    error: function (xhr) {
+                        console.log('Error ', xhr);
                     }
                 });
-            });
         });
 
         $("#buttonPost").click(function () {
