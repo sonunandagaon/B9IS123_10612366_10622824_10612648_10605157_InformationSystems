@@ -7,16 +7,12 @@ namespace MusicEquipmentStore.Services
     {
         //private readonly DatabaseContext _context;
 
-        protected ProductsContext _patternDbContext;
-        public ProductService(ProductsContext patternDbContext)
+        protected MusicEquipmentStoreContext _patternDbContext;
+        public ProductService(MusicEquipmentStoreContext patternDbContext)
         {
             _patternDbContext = patternDbContext;
         }
 
-        //public ProductService(DatabaseContext context)
-        //{
-        //    _context = context;
-        //}
 
         public ProductTable GetProductsDetails()
         {
@@ -36,7 +32,7 @@ namespace MusicEquipmentStore.Services
         {
             _patternDbContext.ProductTables.Add(products);
             _patternDbContext.SaveChanges();
-             return products;
+            return products;
         }
     }
 }

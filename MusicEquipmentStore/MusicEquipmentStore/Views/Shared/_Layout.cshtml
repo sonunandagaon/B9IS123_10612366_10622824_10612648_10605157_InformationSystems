@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/MusicEquipmentStore.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    <header class="fixed-top">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand nav-logo" asp-area="" asp-controller="Home" asp-action="Index">Sans Music Store</a><span class="material-symbols-outlined piano">
@@ -36,6 +36,13 @@
                         </li>
                     </ul>
                 </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="navbar float-right">
+                        <span class="p-2">Welcome</span><span class="text-success font-weight-bold p-2">@User.Identity.Name.ToUpper()</span><a class="btn btn-sm btn-danger"
+                                                                                                                                               asp-action="Logout" asp-controller="Home">SignOut</a>
+                    </div>
+                }
             </div>
         </nav>
     </header>
@@ -47,7 +54,7 @@
 
     @*Footer*@
 
-    <footer class="fixed-bottom pro-footer">
+    <footer class="pro-footer">
         <div class="container pro-container">
             <div class="pro-row">
                 <div class="pro-footer-col">
