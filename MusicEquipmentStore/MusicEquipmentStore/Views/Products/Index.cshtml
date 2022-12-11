@@ -60,5 +60,24 @@
                 });
             });
         });
+
+        $("#buttonPost").click(function () {
+            let cart = { "Id": 4, "ProductName": "piano", "ProductId": 3, "ProductPrice": "30", "ProductQuantity": "5", "UserName": "John", "UserAddress": "Dublin" };
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:5088/api/Cart/AddToCart",
+                data: JSON.stringify(cart),
+                contentType: "application/json; charset=utf-8",
+                success: function (res) {
+                    alert("success");
+                    console.log(res);
+                    alert(JSON.stringify(cart));
+                },
+                error: function (xhr) {
+                    console.log('Error ', xhr);
+                }
+            });
+        });
     </script>
 }
