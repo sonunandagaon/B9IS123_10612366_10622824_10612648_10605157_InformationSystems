@@ -79,5 +79,21 @@
                 }
             });
         });
+
+        $("#buttonDelete").click(function () {
+            var data = { productid: 1, username: "Snehal" };
+            $.ajax({
+                type: "DELETE",
+                url: "http://localhost:5088/api/Cart/DeleteCart/" + data.productid + "/" + data.username,
+                // data: data,
+                success: function (res) {
+                    alert("success");
+                    console.log(res);
+                },
+                error: function (xhr) {
+                    console.log('Error ', xhr);
+                }
+            });
+        });
     </script>
 }
