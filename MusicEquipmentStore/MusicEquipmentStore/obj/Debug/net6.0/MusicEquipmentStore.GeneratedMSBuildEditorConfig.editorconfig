@@ -8,41 +8,49 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MusicEquipmentStore
 build_property.RootNamespace = MusicEquipmentStore
-build_property.ProjectDir = D:\DBS\Classes\Programming for Information Systems\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\MusicEquipmentStore\MusicEquipmentStore\
+build_property.ProjectDir = D:\DBS\Python\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\MusicEquipmentStore\MusicEquipmentStore\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\DBS\Classes\Programming for Information Systems\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\MusicEquipmentStore\MusicEquipmentStore
+build_property.MSBuildProjectDirectory = D:\DBS\Python\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\MusicEquipmentStore\MusicEquipmentStore
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Home/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Home/Product.cshtml]
+[D:/DBS/Python/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Home/Product.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Shared/Error.cshtml]
+[D:/DBS/Python/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Home/SuccessPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdWNjZXNzUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DBS/Python/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DBS/Python/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/DBS/Python/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/_ViewImports.cshtml]
+[D:/DBS/Python/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/_ViewStart.cshtml]
+[D:/DBS/Python/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Home/Index.cshtml]
+[D:/DBS/Python/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-s0fuyv3p5g
 
-[D:/DBS/Classes/Programming for Information Systems/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Shared/_Layout.cshtml]
+[D:/DBS/Python/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-snk1aiu19u
+
+[D:/DBS/Python/B9IS123_10612366_10622824_10612648_10605157_InformationSystems/MusicEquipmentStore/MusicEquipmentStore/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-uyi3mxbczs

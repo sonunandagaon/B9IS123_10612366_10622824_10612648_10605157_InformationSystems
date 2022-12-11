@@ -146,6 +146,173 @@
     font-family: 'Work Sans', sans-serif !important;
 }
 
+
+
+.container[b-s0fuyv3p5g] {
+    max-width: 1220px;
+    margin: auto;
+    width: 100%;
+}
+
+.shop[b-s0fuyv3p5g] {
+    margin-top: 0rem;
+}
+.section-title[b-s0fuyv3p5g] {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 80px;
+    font-style: italic;
+    color: #fd4646;
+    background-color: #171427;
+}
+
+
+.shop-content[b-s0fuyv3p5g] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,auto));
+    gap: 7rem;
+}
+
+.product-box[b-s0fuyv3p5g] {
+    position: relative;
+}
+
+    .product-box:hover[b-s0fuyv3p5g] {
+        padding: 10px;
+        border: 1px solid var(--text-color);
+        transition: 0.4s;
+    }
+
+.product-img[b-s0fuyv3p5g] {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.product-title[b-s0fuyv3p5g] {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.price[b-s0fuyv3p5g] {
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.Rating[b-s0fuyv3p5g] {
+    color: orange;
+}
+
+.reserve[b-s0fuyv3p5g] {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--text-color);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.shop-content[b-s0fuyv3p5g] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,auto));
+    gap: 7rem;
+}
+
+.product-box[b-s0fuyv3p5g] {
+    position: relative;
+}
+/* _content/MusicEquipmentStore/Views/Home/Login.cshtml.rz.scp.css */
+/*@import url('https://fonts.googleapis.com/css?family=Numans');*/
+
+body[b-snk1aiu19u] {
+    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+.container[b-snk1aiu19u] {
+    height: 100%;
+    align-content: center;
+}
+
+.card[b-snk1aiu19u] {
+    height: 370px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span[b-snk1aiu19u] {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #FFC312;
+}
+
+    .social_icon span:hover[b-snk1aiu19u] {
+        color: white;
+        cursor: pointer;
+    }
+
+.card-header h3[b-snk1aiu19u] {
+    color: white;
+}
+
+.social_icon[b-snk1aiu19u] {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+.input-group-prepend span[b-snk1aiu19u] {
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border: 0 !important;
+}
+
+input:focus[b-snk1aiu19u] {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.remember[b-snk1aiu19u] {
+    color: white;
+}
+
+    .remember input[b-snk1aiu19u] {
+        width: 20px;
+        height: 20px;
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+
+.login_btn[b-snk1aiu19u] {
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+
+    .login_btn:hover[b-snk1aiu19u] {
+        color: black;
+        background-color: white;
+    }
+
+.links[b-snk1aiu19u] {
+    color: white;
+}
+
+    .links a[b-snk1aiu19u] {
+        margin-left: 4px;
+    }
 /* _content/MusicEquipmentStore/Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */

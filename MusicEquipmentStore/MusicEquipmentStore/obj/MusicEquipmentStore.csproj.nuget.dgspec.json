@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DBS\\Classes\\Programming for Information Systems\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\MusicEquipmentStore.csproj": {}
+    "D:\\DBS\\Python\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\MusicEquipmentStore.csproj": {}
   },
   "projects": {
-    "D:\\DBS\\Classes\\Programming for Information Systems\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\MusicEquipmentStore.csproj": {
+    "D:\\DBS\\Python\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\MusicEquipmentStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DBS\\Classes\\Programming for Information Systems\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\MusicEquipmentStore.csproj",
+        "projectUniqueName": "D:\\DBS\\Python\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\MusicEquipmentStore.csproj",
         "projectName": "MusicEquipmentStore",
-        "projectPath": "D:\\DBS\\Classes\\Programming for Information Systems\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\MusicEquipmentStore.csproj",
-        "packagesPath": "C:\\Users\\Navin\\.nuget\\packages\\",
-        "outputPath": "D:\\DBS\\Classes\\Programming for Information Systems\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\obj\\",
+        "projectPath": "D:\\DBS\\Python\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\MusicEquipmentStore.csproj",
+        "packagesPath": "C:\\Users\\Athul\\.nuget\\packages\\",
+        "outputPath": "D:\\DBS\\Python\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Navin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Athul\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,6 +68,14 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
@@ -79,7 +87,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -91,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
