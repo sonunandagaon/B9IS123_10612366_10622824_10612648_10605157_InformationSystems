@@ -1,145 +1,40 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-//using MusicEquipmentStore.DataAccessLayer;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MusicEquipmentStore.Context;
 using MusicEquipmentStore.Models;
-using MusicEquipmentStore.Services;
-using Newtonsoft.Json;
 
 namespace MusicEquipmentStore.Controllers
 {
     public class ProductsController : Controller
     {
+        private readonly MusicEquipmentStoreContext _context;
 
-        private IProductService _productService;
-
-        public ProductsController(IProductService productService)
+        public ProductsController(MusicEquipmentStoreContext context)
         {
-            _productService = productService;
+            _context = context;
         }
 
-        // GET: ProductsController
-        public ActionResult Index()
+        public async Task<IActionResult> Products(string categorySlug = "", int p = 1)
         {
-            //ProductDAL _ProductDAL = new ProductDAL();
-            //List<ProductTable> ProductList = new List<ProductTable>();
-            _productService.GetAllProducts();//_ProductDAL.GetAllProducts();
-            return View();
-        }
+            int pageSize = 3;
+            ViewBag.PageNumber = p;
+            ViewBag.PageRange = pageSize;
+            ViewBag.CategorySlug = categorySlug;
 
-        // GET: ProductsController/SearchProduct/5
-        //public ActionResult SearchProduct(int id)
-        //{
-        //    ProductDAL _productDAL = new ProductDAL();
-        //    List<ProductTable> list = new List<ProductTable>();
-        //    //list = _productDAL.GetProductById();
-        //    list = _productDAL.GetAllProducts();
-        //    return View(list);
-        //}
-
-        //[HttpPost]
-        //public string SaveProductDetails(FileUpload file)
-        //{
-        //    ProductTable products = JsonConvert.DeserializeObject<ProductTable>(file.ProductTable);
-        //    if (file.File.Length > 0)
-        //    {
-        //        using (var ms = new MemoryStream())
-        //        {
-        //            file.File.CopyTo(ms);
-        //            var filebytes = ms.ToArray();
-        //            products.Productimage = filebytes;
-
-        //            products = _productService.SaveProductDetails(products);
-
-        //            if (products.ProductId > 0)
-        //            {
-        //            }
-        //            return "Saved";
-        //        }
-        //    }
-        //    return "Failed";
-        //}
-           
-
-        [HttpGet]
-        public ActionResult GetProductsDetails()
-        {
-            var product = _productService.GetAllProducts();
-            //product.Image = this.GetImage(Convert.ToBase64String(product.Image));
-            //ViewBag.Base64String= this.GetImage(Convert.ToBase64String(product.Image));
-            return Json(product);
-        }
-
-        public byte[] GetImage(string base64string)
-        {
-            byte[] bytes = null;
-            if (!string.IsNullOrEmpty(base64string))
+            if (categorySlug == "")
             {
-                bytes = Convert.FromBase64String(base64string);
-            }
-            return bytes;
-        }
+                ViewBag.TotalPages = (int)Math.Ceiling((decimal)_context.Products.Count() / pageSize);
 
-        // GET: ProductsController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+                return View(await _context.Products.OrderByDescending(p => p.Id).Skip((p - 1) * pageSize).Take(pageSize).ToListAsync());
+            }
 
-        // POST: ProductsController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+            Category category = await _context.Categories.Where(c => c.Slug == categorySlug).FirstOrDefaultAsync();
+            if (category == null) return RedirectToAction("Index");
 
-        // GET: ProductsController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+            var productsByCategory = _context.Products.Where(p => p.CategoryId == category.Id);
+            ViewBag.TotalPages = (int)Math.Ceiling((decimal)productsByCategory.Count() / pageSize);
 
-        // POST: ProductsController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ProductsController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ProductsController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return View(await productsByCategory.OrderByDescending(p => p.Id).Skip((p - 1) * pageSize).Take(pageSize).ToListAsync());
         }
     }
 }

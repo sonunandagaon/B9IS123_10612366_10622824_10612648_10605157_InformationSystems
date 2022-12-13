@@ -44,8 +44,8 @@
 
 .mid-sec {
     padding-top: 100px;
-    padding-bottom: 100px;
-    margin-bottom: 6%;
+    /*padding-bottom: 100px;
+    margin-bottom: 6%;*/
 }
 
 .mid-window {
@@ -55,8 +55,6 @@
     background-size: cover;
     background-attachment: fixed;
 }
-
-/*------products section------*/
 
 /*------products section------*/
 
@@ -94,150 +92,6 @@
     grid-row-end: span 1;
     grid-column-start: span 3;
     grid-column-end: span 3;
-}
-
-.image-wrap {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    align-items: stretch;
-}
-
-.item-overlay {
-    position: absolute;
-    z-index: 30;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: stretch;
-    /* background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(24, 24, 29, 0.1)), to(rgba(24, 24, 29, 0.1))); */
-    background-image: linear-gradient(180deg, rgba(24, 24, 29, 0.1), rgba(24, 24, 29, 0.1));
-    opacity: 0;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.w-inline-block {
-    max-width: 100%;
-    display: inline-block;
-}
-
-a {
-    color: #18181d;
-    line-height: 26px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-a {
-    background-color: transparent;
-}
-
-.product-image.product-image-size-m {
-    height: 360px;
-}
-
-.product-image {
-    display: flex;
-    height: 480px;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    background-image: url(https://assets.website-files.com/5d9c8fc…/5d9c8fc…_circa-chandelier_hires_download.jpg);
-    background-position: 50% 50%;
-    background-size: cover;
-}
-
-.label.inside-label {
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    right: auto;
-    bottom: auto;
-    z-index: 40;
-    border-style: none;
-    background-color: #fff;
-    color: #18181d;
-}
-
-.label {
-    display: inline-block;
-    margin-bottom: 10px;
-    padding: 10px 22px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(170, 170, 170, 0.2);
-    background-color: #fff;
-    font-size: 12px;
-    line-height: 20px;
-    font-weight: 500;
-    text-transform: uppercase;
-}
-
-.w-condition-invisible {
-    display: none !important;
-}
-
-.label.black-label.sale-label {
-    position: absolute;
-    left: auto;
-    top: 0%;
-    right: 0%;
-    bottom: auto;
-}
-
-.label.black-label {
-    z-index: 40;
-    border-style: none;
-    border-width: 0px;
-    background-color: #18181d;
-    color: #fff;
-}
-
-.sale {
-    background-color: #000;
-    color: #fff;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px 15px;
-}
-
-.view-product-container {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0);
-    z-index: 9999;
-    cursor: pointer;
-}
-
-    .view-product-container:hover {
-        background-color: #0000001f;
-    }
-
-        .view-product-container:hover .view-button {
-            visibility: visible;
-        }
-
-.view-button {
-    position: absolute;
-    width: 90%;
-    bottom: 5px;
-    left: 15px;
-    visibility: hidden;
 }
 
 /*------content section------- */

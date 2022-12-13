@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 using Microsoft.Extensions.DependencyInjection;
+using MusicEquipmentStore.Context;
 using MusicEquipmentStore.Data;
-using MusicEquipmentStore.Models;
 using MusicEquipmentStore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -55,9 +55,20 @@ app.UseEndpoints(endpoints =>
     endpoints.MapRazorPages();
     endpoints.MapControllers();
 });
+
+
+
+app.MapControllerRoute(
+    name: "products",
+    pattern: "/products/{categorySlug?}",
+    defaults: new { controller = "Home", action = "Index" });
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Login}/{id?}");
+
+var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<MusicEquipmentStoreContext>();
+ProductData.ProductDatabase(context);
 
 app.Run();
 

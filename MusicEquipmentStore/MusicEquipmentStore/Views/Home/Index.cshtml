@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Product>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -65,38 +67,81 @@
 
         <!-- products section -->
 
+        <div class="row">
+            <div class="col-3">
+                <vc:categories />
+                <div class="bg-success mt-3 p-3 text-white">
+                    <vc:small-cart />
+                </div>
+            </div>
+            <div class="col-2">
+                <partial name="_NotificationPartial" />
+            </div>
+        @*</div>
+        <div class="row">*@
+            @foreach (var item in Model)
+            {
+                <div class="col-2">
+                    <img src="/images/Equipment_Images/Dumbell/@item.Image" class="img-fluid" alt="" />
+                    <h4>@item.Name</h4>
+                    <div>
+                        @Html.Raw(item.Description)
+                    </div>
+                    <p>
+                        @item.Price.ToString("C2")
+                    </p>
+                    <p>
+                        <a class="btn btn-primary" asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id">Add to cart</a>
+                    </p>
+                </div>
+            }
 
-        <div class="product">
-            <div class="section">
-                <div>
-                    <div role="list" id="productGrid" class="product-grid">
-                        <div class="product-container" id="Item1" role="listitem">
-                            <div class="image-wrap">
 
-                                <div class="sale">
-                                    Sale
-                                </div>
-                                <div style="background-image: url(../images/Equipment_Images/Dumbell/H_D.jpg)"
-                                     class="product-image product-image-size-m">
+            @if (ViewBag.TotalPages > 1)
+            {
+                <div class="d-flex w-100 justify-content-center">
+                    <pagination page-count="@ViewBag.TotalPages"
+                                page-target="/products/@ViewBag.CategorySlug"
+                                page-number="@ViewBag.PageNumber"
+                                page-range="@ViewBag.PageRange">
+                    </pagination>
+                </div>
+            }
 
+        </div>
+
+        @*<div class="product">
+                <div class="section">
+                    <div>
+                        <div role="list" id="productGrid" class="product-grid">
+                            <div class="product-container" id="Item1" role="listitem">
+                               <div class="image-wrap">
+
+                                     <div class="sale">
+                                        Sale
+                                    </div>
+                                     <div style="background-image: url(../images/Equipment_Images/Dumbell/H_D.jpg)"
+
+                                          class="product-image product-image-size-m">
+
+                                     </div>
+                                    <div class="view-product-container">
+                                        <a style="opacity: 1;" class="view-button" onclick="productOnClick('${item.id}')">
+                                            <div class="button-small white-small">
+                                                <div>View Product</div>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="view-product-container">
-                                    <a style="opacity: 1;" class="view-button" onclick="productOnClick('${item.id}')">
-                                        <div class="button-small white-small">
-                                            <div>View Product</div>
-                                        </div>
-                                    </a>
+                                <div class="product4-content-wrap">
+                                    <a class="size6-link">item 1</a>
+                                    <div class="size4-text">20</div>
                                 </div>
-                            </div>
-                            <div class="product4-content-wrap">
-                                <a class="size6-link">item 1</a>
-                                <div class="size4-text">20</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>*@
 
         <!--last section-->
 
@@ -118,11 +163,6 @@
     <script>
         allProducts()
 
-        function productOnClick(x) {
-            localStorage.setItem("id", x)
-            //window.location = 'productView.html'
-        }
-       
     </script>
 }
 

@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MusicEquipmentStore.Context;
 using MusicEquipmentStore.Data;
 using MusicEquipmentStore.Models;
 using MusicEquipmentStore.Models.ViewModel;
@@ -10,6 +12,7 @@ using System.Security.Claims;
 
 namespace MusicEquipmentStore.Controllers
 {
+
     public class HomeController : Controller
     {
         protected MusicEquipmentStoreContext _dbContext;
@@ -18,10 +21,28 @@ namespace MusicEquipmentStore.Controllers
             _dbContext = dbContext;
         }
 
-        [Authorize]
-        public IActionResult Index()
+        //[Authorize]
+        public async Task<IActionResult> Index(string categorySlug = "", int p = 1)
         {
-            return View();
+            int pageSize = 3;
+            ViewBag.PageNumber = p;
+            ViewBag.PageRange = pageSize;
+            ViewBag.CategorySlug = categorySlug;
+
+            if (categorySlug == "")
+            {
+                ViewBag.TotalPages = (int)Math.Ceiling((decimal)_dbContext.Products.Count() / pageSize);
+
+                return View(await _dbContext.Products.OrderByDescending(p => p.Id).Skip((p - 1) * pageSize).Take(pageSize).ToListAsync());
+            }
+
+            Category category = await _dbContext.Categories.Where(c => c.Slug == categorySlug).FirstOrDefaultAsync();
+            if (category == null) return RedirectToAction("Index");
+
+            var productsByCategory = _dbContext.Products.Where(p => p.CategoryId == category.Id);
+            ViewBag.TotalPages = (int)Math.Ceiling((decimal)productsByCategory.Count() / pageSize);
+
+            return View(await productsByCategory.OrderByDescending(p => p.Id).Skip((p - 1) * pageSize).Take(pageSize).ToListAsync());
         }
 
         public IActionResult Product()
@@ -34,7 +55,7 @@ namespace MusicEquipmentStore.Controllers
             return View();
         }
 
-
+        
         [HttpPost]
         public IActionResult Login(LoginViewModel loginViewModel)
         {
@@ -44,9 +65,9 @@ namespace MusicEquipmentStore.Controllers
                 if (data != null)
                 {
                     var isValid = (data.Username == loginViewModel.Username && data.Password == loginViewModel.Password);
-                    if (isValid)
+                        if (isValid)
                     {
-                        var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, loginViewModel.Username) },
+                        var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, loginViewModel.Username)},
                             CookieAuthenticationDefaults.AuthenticationScheme);
                         var principal = new ClaimsPrincipal(identity);
                         HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
