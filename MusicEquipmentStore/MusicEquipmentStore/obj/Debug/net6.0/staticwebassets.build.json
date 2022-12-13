@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZZDwZ08I9WqLn3nUogewUzJXsvqHkj+idyhqFY2j1YI=",
+  "Hash": "45Yz2SZsVVpts4KlTpg0oY2+InKCTtPmCufVconCOXg=",
   "Source": "MusicEquipmentStore",
   "BasePath": "_content/MusicEquipmentStore",
   "Mode": "Default",
@@ -374,6 +374,23 @@
       "OriginalItemSpec": "wwwroot\\images\\Gym-ball2.jpg"
     },
     {
+      "Identity": "D:\\DBS\\Python\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\wwwroot\\images\\hero1.jpg",
+      "SourceId": "MusicEquipmentStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DBS\\Python\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\wwwroot\\",
+      "BasePath": "_content/MusicEquipmentStore",
+      "RelativePath": "images/hero1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\hero1.jpg"
+    },
+    {
       "Identity": "D:\\DBS\\Python\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\wwwroot\\images\\Kettle-bell.jpg",
       "SourceId": "MusicEquipmentStore",
       "SourceType": "Discovered",
@@ -491,6 +508,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Treadmill2.jpg"
+    },
+    {
+      "Identity": "D:\\DBS\\Python\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\wwwroot\\images\\video\\pexels-ron-lach-7674509.mp4",
+      "SourceId": "MusicEquipmentStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DBS\\Python\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\wwwroot\\",
+      "BasePath": "_content/MusicEquipmentStore",
+      "RelativePath": "images/video/pexels-ron-lach-7674509.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\video\\pexels-ron-lach-7674509.mp4"
     },
     {
       "Identity": "D:\\DBS\\Python\\B9IS123_10612366_10622824_10612648_10605157_InformationSystems\\MusicEquipmentStore\\MusicEquipmentStore\\wwwroot\\images\\Weight-Bar.jpg",
