@@ -1,19 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MusicEquipmentStore.Data;
 using MusicEquipmentStore.Models;
+using MusicEquipmentStore.Models.ViewModel;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace MusicEquipmentStore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        protected MusicEquipmentStoreContext _dbContext;
+        public HomeController(MusicEquipmentStoreContext dbContext)
         {
-            _logger = logger;
+            _dbContext = dbContext;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
             return View();
@@ -24,27 +29,58 @@ namespace MusicEquipmentStore.Controllers
             return View();
         }
 
-        //public IActionResult Login()
-        //{
-        //    EmployeeModel _empoyeeModel = new EmployeeModel();
-        //    return View(_empoyeeModel);
-        //}
+        public IActionResult Login()
+        {
+            return View();
+        }
 
-        //[HttpPost]
-        //public IActionResult Login(EmployeeModel _empoyeeModel)
-        //{
-        //    EmployeeContext _employeeContext = new EmployeeContext();
-        //    var status = _employeeContext.EmployeeLogin.Where(m => m.LoginId == _empoyeeModel.LoginId && m.Password == _empoyeeModel.Pasword).FirstOrDefault();
-        //    if (status == null)
-        //    {
-        //        ViewBag.LoginStatus = 0;
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction("SuccessPage", "Home");
-        //    }
-        //    return View(_empoyeeModel);
-        //}
+
+        [HttpPost]
+        public IActionResult Login(LoginViewModel loginViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var data = _dbContext.Users.Where(u => u.Username == loginViewModel.Username).SingleOrDefault();
+                if (data != null)
+                {
+                    var isValid = (data.Username == loginViewModel.Username && data.Password == loginViewModel.Password);
+                    if (isValid)
+                    {
+                        var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, loginViewModel.Username) },
+                            CookieAuthenticationDefaults.AuthenticationScheme);
+                        var principal = new ClaimsPrincipal(identity);
+                        HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                        HttpContext.Session.SetString("Username", loginViewModel.Username);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        TempData["errorPassword"] = "Invalid Password!";
+                        return View(loginViewModel);
+                    }
+                }
+                else
+                {
+                    TempData["errorUserName"] = "UserName Not Found!";
+                    return View(loginViewModel);
+                }
+            }
+            else
+            {
+                return View(loginViewModel);
+            }
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            var storedCookies = Request.Cookies.Keys;
+            foreach (var cookies in storedCookies)
+            {
+                Response.Cookies.Delete(cookies);
+            }
+            return RedirectToAction("Login", "Home");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
