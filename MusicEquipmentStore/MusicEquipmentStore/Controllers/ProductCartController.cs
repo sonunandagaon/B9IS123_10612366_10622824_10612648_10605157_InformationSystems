@@ -234,7 +234,29 @@ namespace MusicEquipmentStore.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Delete()
+        {
+            string baseUri = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}/api/";
 
+            username = (string)TempData["Username"];
+            TempData["username"] = username;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUri);
+
+                //HTTP DELETE
+                var deleteTask = client.DeleteAsync("cart/DeleteCart/" + username);
+                deleteTask.Wait();
+
+                var result = deleteTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return RedirectToAction("Index");
+        }
 
     }
 }
