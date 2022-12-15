@@ -59,7 +59,7 @@
                     €@Model.Products.Price
                 </p>
                 <p>
-                    <a class="btn btn-primary" asp-controller="Products" asp-action="AddProduct" asp-route-id="@Model.Products.Id">Reserve</a>
+                    <a class="btn btn-primary" asp-controller="ProductCart" asp-action="Create" asp-route-id="@Model.Products.Id">Reserve</a>
                 <a class="btn btn-primary" asp-controller="ProductCart" asp-action="Index" >View Cart</a>
                 
                 </p>
