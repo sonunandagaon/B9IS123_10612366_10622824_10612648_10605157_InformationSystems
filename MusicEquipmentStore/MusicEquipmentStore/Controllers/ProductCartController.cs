@@ -52,13 +52,9 @@ namespace MusicEquipmentStore.Controllers
                 {
                     client.BaseAddress = new Uri("http://localhost:5088/api/");
 
-
-
                     //HTTP POST
                     var postTask = client.PostAsJsonAsync<Cart>("cart/AddToCart", cart);
                     postTask.Wait();
-
-
 
                     var result = postTask.Result;
                     if (result.IsSuccessStatusCode)
@@ -83,35 +79,81 @@ namespace MusicEquipmentStore.Controllers
                 {
                     client.BaseAddress = new Uri("http://localhost:5088/api/");
 
-
-
                     //HTTP PUT
                     var putTask = client.PutAsJsonAsync<UpdateCart>("cart/Update", updateCart);
                     putTask.Wait();
 
-
-
                     var result = putTask.Result;
                     if (result.IsSuccessStatusCode)
                     {
-
-
-
                         return RedirectToAction("Index");
                     }
                 }
             }
-
-
-
             ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
-
-
 
             return RedirectToAction("Index");
         }
 
+        public async Task<IActionResult> Add(long id)
+        {
+            string baseUri = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}/api/";
 
+            username = (string)TempData["Username"];
+            TempData["username"] = username;
+
+
+            bool updatesttaus = true;
+            Product product = _dbContext.Products.Find(id);
+            //List<Cart> cart = HttpContext.Session.GetJson<List<Cart>>("Cart") ?? new List<Cart>();
+            Cart cartItem = _dbContext.Carts.Where(c => c.ProductId == id).FirstOrDefault();
+            UpdateCart updateCart = new UpdateCart();
+
+            if (cartItem == null)
+            {
+                updateCart = new UpdateCart()
+                {
+                    ProductName = product.Name,
+                    ProductQuantity = "1",
+                    ProductPrice = product.Price.ToString(),
+                    UserName = username,
+                    UpdateStatus = updatesttaus,
+                    ProductId = cartItem.ProductId
+
+                };
+            }
+            else
+            {
+                int totalproductquantity = Convert.ToInt32(cartItem.ProductQuantity) + 1;
+                updateCart = new UpdateCart()
+                {
+                    ProductQuantity = totalproductquantity.ToString(),
+                    ProductPrice = ((decimal)product.Price * totalproductquantity).ToString(),
+                    UserName = username,
+                    UpdateStatus = updatesttaus,
+                    ProductName = cartItem.ProductName,
+                    ProductId = cartItem.ProductId
+                };
+            }
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUri);
+
+                //HTTP PUT
+                var putTask = client.PutAsJsonAsync<UpdateCart>("cart/Update", updateCart);
+                putTask.Wait();
+
+                var result = putTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            };
+
+            return RedirectToAction("Index");
+
+        }
 
     }
 }
