@@ -43,9 +43,9 @@
             <div class="row justify-content-md-center">
                 <div class="hero-section">
                     <video class="hero-video" autoplay="autoplay" muted loop>
-                        <source src="~/images/video/pexels-ron-lach-7674509.mp4" type="video/mp4" />
+                        <source src="~/images/video/video.mp4" type="video/mp4" />
                     </video>
-                    <div class="hero-section-large-text">Equip your workouts..</div>
+                    <div class="hero-section-large-text">Equip your Instruments..</div>
                 </div>
             </div>
         </div>
@@ -56,9 +56,9 @@
             <div class="section">
                 <div class="headline-grid">
                     <div>
-                        <div class="text-label">Shop gym equipments</div>
-                        <input class="search-bar" placeholder="WHAT TO SEARCH" type="" id="search"
-                               onkeyup="searchProduct()" />
+                        <div class="text-label">Shop Music equipments</div>
+                        @*<input class="search-bar" placeholder="WHAT TO SEARCH" type="" id="search"
+                               onkeyup="searchProduct()" />*@
                         <div class="text-content-size">Stylish modern collection options</div>
                     </div>
                 </div>
@@ -70,29 +70,22 @@
         <div class="row ">
             <div class="col-3">
                 <vc:categories />
-                @*<div class="bg-success mt-3 p-3 text-white">
-                <vc:small-cart />
-            </div>*@
             </div>
-            @*<div class="col-2">
-            <partial name="_NotificationPartial" />
-        </div>*@
-            @*</div>
-        <div class="row">*@
             @foreach (var item in Model)
             {
-                <div class="col-3 product-container">
-                    <img src="/images/Equipment_Images/Dumbell/@item.Image" class="img-fluid" alt="" />
-                    <h4>@item.Name</h4>
-                    <div>
-                        @Html.Raw(item.Description)
-                    </div>
+                <div class="col-3">
+                    <img src="/images/Music_Images/@item.Image" class="img-fluid" alt="" style="width:85%" />
+                    <h6>@item.Name</h6>
                     <p>
-                        @item.Price.ToString("C2")
+                        <a class="btn btn-primary" asp-controller="Products" asp-action="ViewProduct" asp-route-id="@item.Id">View Details</a>
                     </p>
-                    <p>
-                        <a class="btn btn-primary" asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id">Add to cart</a>
-                    </p>
+                    @*<div class="view-product-container">
+                        <a style="opacity: 1;" class="view-button" onclick="productOnClick(@item.Id)">
+                            <div class="button-small white-small">
+                                <div>View Product</div>
+                            </div>
+                        </a>
+                    </div>*@
                 </div>
             }
 
@@ -131,6 +124,10 @@
 
     <script>
        // allProducts()
+        //function productOnClick(x) {
+        //    localStorage.setItem("id", x)
+        //    window.location = 'productView.html'
+        //}
 
     </script>
 }

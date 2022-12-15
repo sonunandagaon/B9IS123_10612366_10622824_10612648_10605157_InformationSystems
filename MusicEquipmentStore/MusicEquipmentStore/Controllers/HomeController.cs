@@ -55,7 +55,12 @@ namespace MusicEquipmentStore.Controllers
             return View();
         }
 
-        
+
+        public IActionResult ViewProduct()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Login(LoginViewModel loginViewModel)
         {

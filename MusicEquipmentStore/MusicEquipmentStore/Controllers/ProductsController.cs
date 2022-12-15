@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MusicEquipmentStore.Context;
 using MusicEquipmentStore.Models;
+using MusicEquipmentStore.Models.ViewModel;
 
 namespace MusicEquipmentStore.Controllers
 {
@@ -35,6 +36,14 @@ namespace MusicEquipmentStore.Controllers
             ViewBag.TotalPages = (int)Math.Ceiling((decimal)productsByCategory.Count() / pageSize);
 
             return View(await productsByCategory.OrderByDescending(p => p.Id).Skip((p - 1) * pageSize).Take(pageSize).ToListAsync());
+        }
+
+        public async Task<IActionResult> ViewProduct(int id)
+        {
+            ProductViewModel productViewModel = new ProductViewModel();
+            //productViewModel.Products = await _context.Products.Where(x => x.Id == id).Include(y=>y.CategoryId).FirstOrDefaultAsync();
+            productViewModel.Products = await _context.Products.Where(x => x.Id == id).FirstOrDefaultAsync();
+            return View(productViewModel);
         }
     }
 }
