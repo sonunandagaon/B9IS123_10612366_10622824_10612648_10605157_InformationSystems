@@ -77,6 +77,7 @@ namespace MusicEquipmentStore.Controllers
                         var principal = new ClaimsPrincipal(identity);
                         HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
                         HttpContext.Session.SetString("Username", loginViewModel.Username);
+                        TempData["username"] = loginViewModel.Username;
                         return RedirectToAction("Index", "Home");
                     }
                     else

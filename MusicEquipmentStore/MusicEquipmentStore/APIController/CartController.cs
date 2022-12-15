@@ -21,7 +21,7 @@ namespace MusicEquipmentStore.APIController
         public CartController(IProductService productService)
         {
             _productService = productService;
-            myConnection.ConnectionString = @"Server=DESKTOP-UDLAN01\SQLEXPRESS;Database=Products;Trusted_Connection=True;TrustServerCertificate=true;";
+            myConnection.ConnectionString = @"Server=DESKTOP-UDLAN01\SQLEXPRESS;Database=MusicEquipmentStore;Trusted_Connection=True;TrustServerCertificate=true;";
 
         }
 
@@ -97,7 +97,7 @@ namespace MusicEquipmentStore.APIController
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
             //increase functionality
-            if (cart.UpdateStatus = true)
+            if (cart.UpdateStatus == true)
             {
                 sqlCmd.CommandText = "Update Carts Set ProductQuantity='" + cart.ProductQuantity +
                     "', ProductPrice= '" + cart.ProductPrice + "'" + " where UserName ='" + cart.UserName + "' and ProductId= '" + cart.ProductId + "'";

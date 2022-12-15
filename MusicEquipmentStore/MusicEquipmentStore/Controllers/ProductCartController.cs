@@ -3,6 +3,7 @@ using MusicEquipmentStore.Context;
 using MusicEquipmentStore.Models.ViewModel;
 using MusicEquipmentStore.Models;
 using System.Security.Policy;
+using Microsoft.EntityFrameworkCore;
 
 namespace MusicEquipmentStore.Controllers
 {
@@ -48,18 +49,19 @@ namespace MusicEquipmentStore.Controllers
 
         public ActionResult Create(int id)
         {
+            string baseUri = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}/api/";
+
             username = (string)TempData["Username"];
             TempData["username"] = username;
             ProductViewModel productViewMode = new ProductViewModel();
             //productViewModel.Products = await _context.Products.Where(x => x.Id == id).Include(y=>y.CategoryId).FirstOrDefaultAsync();
             productViewMode.Products = _dbContext.Products.Where(x => x.Id == id).FirstOrDefault();
 
-
-
-            List<Cart> oldCart = _dbContext.Carts.Where(x => x.ProductId == id).ToList();
+            var _data = _dbContext.Carts.Where(x => x.ProductId == id).FirstOrDefault();
+                      
             UpdateCart updateCart = new UpdateCart();
             int prodQuantity = 0;
-            if (oldCart.Count == 0)
+            if (_data == null)
             {
                 prodQuantity = 1;
                 Cart cart = new Cart()
@@ -73,10 +75,9 @@ namespace MusicEquipmentStore.Controllers
                 };
 
 
-
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("http://localhost:5088/api/");
+                    client.BaseAddress = new Uri(baseUri);
 
                     //HTTP POST
                     var postTask = client.PostAsJsonAsync<Cart>("cart/AddToCart", cart);
@@ -91,7 +92,9 @@ namespace MusicEquipmentStore.Controllers
             }
             else
             {
-                prodQuantity = oldCart.Count + 1;
+               List<Cart> oldCart = _dbContext.Carts.Where(x => x.ProductId == id).ToList();
+                
+                prodQuantity = Convert.ToInt32(oldCart[0].ProductQuantity) + 1;
                 updateCart = new UpdateCart()
                 {
                     ProductQuantity = prodQuantity.ToString(),
@@ -99,11 +102,13 @@ namespace MusicEquipmentStore.Controllers
                     UserName = username,
                     UpdateStatus = true,
                     ProductName = oldCart[0].ProductName,
-                    ProductId = oldCart[0].ProductId
+                    ProductId = oldCart[0].ProductId,
+                    //Id = 2,
+                    UserAddress = null
                 };
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("http://localhost:5088/api/");
+                    client.BaseAddress = new Uri(baseUri);
 
                     //HTTP PUT
                     var putTask = client.PutAsJsonAsync<UpdateCart>("cart/Update", updateCart);
@@ -202,14 +207,14 @@ namespace MusicEquipmentStore.Controllers
                 UserName = username
             };
 
-            if (cartItem.Count > 1)
+            if (Convert.ToInt32(cartItem[0].ProductQuantity) > 1)
             {
-                int totalproductquantity = cartItem.Count - 1;
+                int totalproductquantity = Convert.ToInt32(cartItem[0].ProductQuantity) - 1;
                 updatecart.ProductQuantity = totalproductquantity.ToString();
-                updatecart.ProductPrice = (Convert.ToDecimal(cartItem[0].ProductPrice) * totalproductquantity).ToString();
+                updatecart.ProductPrice = (Convert.ToDecimal(product.Price) * totalproductquantity).ToString();
             }
 
-            if (cartItem.Count == 1)
+            if (Convert.ToInt32(cartItem[0].ProductQuantity) == 1)
             {
                 updatecart.ProductQuantity = "0";
                 updatecart.ProductPrice = "0";
