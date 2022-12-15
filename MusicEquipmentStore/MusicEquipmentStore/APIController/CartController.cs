@@ -25,35 +25,35 @@ namespace MusicEquipmentStore.APIController
 
         }
 
-        // GET: api/<CartController> 
-        [HttpGet("GetCartItems")]
-        public Cart GetCartItems()
+        // GET: api/<CartController> 
+        [HttpGet("GetCartItems/{username}")]
+        public List<Cart> GetCartItems(string username)
         {
-
+            // string vl = TempData["username"];
             SqlDataReader reader = null;
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
-            int id = 1;
-            sqlCmd.CommandText = "Select * from Cart_table where Id=" + id + "";
+            sqlCmd.CommandText = "Select * from Carts where UserName= '" + username + "'";
             sqlCmd.Connection = myConnection;
             myConnection.Open();
             reader = sqlCmd.ExecuteReader();
-            Cart cart = null;
+            List<Cart> cart = new List<Cart>();
+            Cart newcart = new Cart();
             while (reader.Read())
             {
-                cart = new Cart();
-                cart.ProductName = reader.GetValue(1).ToString();
-                cart.ProductId = Convert.ToInt32(reader.GetValue(2));
-                cart.ProductPrice = reader.GetValue(3).ToString();
-                cart.ProductQuantity = reader.GetValue(4).ToString();
-                cart.UserName = reader.GetValue(5).ToString();
-                cart.UserAddress = reader.GetValue(6).ToString();
+                cart.Add(new Cart()
+                {
+                    Id = reader.GetInt32("Id"),
+                    ProductName = reader.GetString("ProductName"),
+                    ProductId = reader.GetInt32("ProductId"),
+                    ProductPrice = reader.GetString("ProductPrice"),
+                    ProductQuantity = reader.GetString("ProductQuantity"),
+                    UserName = reader.GetString("UserName"),
+                });
             }
 
-            return cart; 
-            
+            return cart;
             myConnection.Close();
-
         }
 
         //POST api/<CartController>
@@ -76,7 +76,7 @@ namespace MusicEquipmentStore.APIController
             int rowInserted = sqlCmd.ExecuteNonQuery();
             myConnection.Close();
 
-           
+
 
         }
 
@@ -126,4 +126,4 @@ namespace MusicEquipmentStore.APIController
             myConnection.Close();
         }
     }
- }
+}
