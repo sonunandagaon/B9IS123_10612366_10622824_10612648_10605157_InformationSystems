@@ -93,5 +93,37 @@ namespace MusicEquipmentStore.APIController
             myConnection.Close();
         }
 
+        [HttpPut("Update")]
+        public void Update(UpdateCart cart)
+        {
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+            //increase functionality
+            if (cart.UpdateStatus = true)
+            {
+                sqlCmd.CommandText = "Update Carts Set ProductQuantity='" + cart.ProductQuantity +
+                    "', ProductPrice= '" + cart.ProductPrice + "'" + " where UserName ='" + cart.UserName + "' and ProductId= '" + cart.ProductId + "'";
+
+            }
+            else
+            {
+                if (Convert.ToInt32(cart.ProductQuantity) == 0)
+                {
+                    sqlCmd.CommandText = "DELETE FROM Carts WHERE ProductQuantity='" +
+                        cart.ProductQuantity + "' and UserName='" + cart.UserName + "'";
+
+                }
+                else
+                {
+                    sqlCmd.CommandText = "Update Carts Set ProductQuantity='" + cart.ProductQuantity +
+                   "', ProductPrice= '" + cart.ProductPrice + "'" + " where UserName ='" + cart.UserName + "' and ProductId= '" + cart.ProductId + "'";
+
+                }
+            }
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+            int rowDeleted = sqlCmd.ExecuteNonQuery();
+            myConnection.Close();
+        }
     }
  }
