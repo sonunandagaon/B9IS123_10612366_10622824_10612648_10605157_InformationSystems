@@ -16,10 +16,36 @@ namespace MusicEquipmentStore.Controllers
             _dbContext = dbContext;
 
         }
-        public IActionResult Index()
+        public ActionResult Index()
         {
-            return View();
+            string baseUri = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}/api/";
+            username = (string)TempData["Username"];
+            TempData["username"] = username;
+            // string username = (string)TempData["Username"];
+            IEnumerable<Cart> cartitems = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUri);
+                //HTTP GET
+                var responseTask = client.GetAsync("cart/GetCartItems/" + username);
+                responseTask.Wait();
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<IList<Cart>>();
+                    readTask.Wait();
+                    cartitems = readTask.Result;
+                }
+                else
+                {
+                    cartitems = Enumerable.Empty<Cart>();
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+            }
+            return View(cartitems);
         }
+
+
         public ActionResult Create(int id)
         {
             username = (string)TempData["Username"];
@@ -207,6 +233,8 @@ namespace MusicEquipmentStore.Controllers
             }
             return RedirectToAction("Index");
         }
+
+
 
     }
 }
