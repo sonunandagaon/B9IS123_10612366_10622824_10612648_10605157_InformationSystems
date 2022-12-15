@@ -76,17 +76,15 @@ namespace MusicEquipmentStore.APIController
             int rowInserted = sqlCmd.ExecuteNonQuery();
             myConnection.Close();
 
-
-
         }
 
         // DELETE api/<CartController>/5
-        [HttpDelete("DeleteCart/{id:int}/{username}")]
-        public void Delete(int id, string username)
+        [HttpDelete("DeleteCart/{username}")]
+        public void Delete(string username)
         {
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "delete from Cart_table where Id= " + id + " and UserName='" + username + "'";
+            sqlCmd.CommandText = "delete from Carts where UserName='" + username + "'";
             sqlCmd.Connection = myConnection;
             myConnection.Open();
             int rowDeleted = sqlCmd.ExecuteNonQuery();
