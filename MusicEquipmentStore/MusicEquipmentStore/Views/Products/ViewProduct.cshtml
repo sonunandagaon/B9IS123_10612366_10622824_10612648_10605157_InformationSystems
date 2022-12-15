@@ -38,7 +38,7 @@
 <body>
     @if (Model != null && Model.Products != null)
     {
-        <div class="row"  style="margin-top: 7%;">
+        <div class="row" style="margin-top: 7%;">
             <div class="col-sm-4 prod-desc">
                 <h4>@Model.Products.Name</h4>
                 <span class="align-middle"> @Html.Raw(Model.Products.Description)</span>
@@ -59,14 +59,16 @@
                     €@Model.Products.Price
                 </p>
                 <p>
-                    <a class="btn btn-primary" asp-controller="Products" asp-action="AddProduct" asp-route-id="@Model.Products.Id">Reserve</a>
-                <a class="btn btn-primary" asp-controller="ProductCart" asp-action="Index" >View Cart</a>
-                
+                    <a class="btn btn-primary" asp-controller="ProductCart" asp-action="Create" asp-route-id="@Model.Products.Id">Reserve</a>
+                    <a class="btn btn-primary" asp-controller="ProductCart" asp-action="Index">View Cart</a>
+
                 </p>
             </div>
         </div>
     }
 </body>
+
+
 </html>
 
 @section scripts{
@@ -75,5 +77,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="../js/data.js" type="text/javascript"></script>
     <script src="~/js/data.js"></script>
+
+    
 }
 

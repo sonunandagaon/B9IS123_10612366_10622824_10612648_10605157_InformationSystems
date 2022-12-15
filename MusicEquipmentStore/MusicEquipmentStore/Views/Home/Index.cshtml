@@ -58,7 +58,7 @@
                     <div>
                         <div class="text-label">Shop Music equipments</div>
                         @*<input class="search-bar" placeholder="WHAT TO SEARCH" type="" id="search"
-                               onkeyup="searchProduct()" />*@
+                        onkeyup="searchProduct()" />*@
                         <div class="text-content-size">Stylish modern collection options</div>
                     </div>
                 </div>
@@ -77,15 +77,8 @@
                     <img src="/images/Music_Images/@item.Image" class="img-fluid" alt="" style="width:85%" />
                     <h6>@item.Name</h6>
                     <p>
-                        <a class="btn btn-primary" asp-controller="Products" asp-action="ViewProduct" asp-route-id="@item.Id">View Details</a>
+                        <a class="btn btn-outline-secondary" asp-controller="Products" asp-action="ViewProduct" asp-route-id="@item.Id">View Details</a>
                     </p>
-                    @*<div class="view-product-container">
-                        <a style="opacity: 1;" class="view-button" onclick="productOnClick(@item.Id)">
-                            <div class="button-small white-small">
-                                <div>View Product</div>
-                            </div>
-                        </a>
-                    </div>*@
                 </div>
             }
 
@@ -105,6 +98,7 @@
 
        
 
+
         <!--last section-->
 
         <div class="mid-sec">
@@ -123,12 +117,7 @@
     @*<link href="~/css/style.css" rel="stylesheet" asp-file-version="true" />*@
 
     <script>
-       // allProducts()
-        //function productOnClick(x) {
-        //    localStorage.setItem("id", x)
-        //    window.location = 'productView.html'
-        //}
-
+      
     </script>
 }
 
