@@ -155,5 +155,58 @@ namespace MusicEquipmentStore.Controllers
 
         }
 
+        public async Task<IActionResult> Decrease(long id)
+        {
+            string baseUri = $"{this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}/api/";
+
+            username = (string)TempData["Username"];
+            TempData["username"] = username;
+
+            bool updatesttaus = false;
+            Product product = _dbContext.Products.Find(id);
+            //List<Cart> cart = HttpContext.Session.GetJson<List<Cart>>("Cart") ?? new List<Cart>();
+            List<Cart> cartItem = _dbContext.Carts.Where(c => c.ProductId == id).ToList();
+
+            UpdateCart updatecart = new UpdateCart()
+            {
+                ProductId = cartItem[0].ProductId,
+                ProductName = cartItem[0].ProductName,
+                ProductPrice = cartItem[0].ProductPrice,
+                UpdateStatus = updatesttaus,
+                UserName = username
+            };
+
+            if (cartItem.Count > 1)
+            {
+                int totalproductquantity = cartItem.Count - 1;
+                updatecart.ProductQuantity = totalproductquantity.ToString();
+                updatecart.ProductPrice = (Convert.ToDecimal(cartItem[0].ProductPrice) * totalproductquantity).ToString();
+            }
+
+            if (cartItem.Count == 1)
+            {
+                updatecart.ProductQuantity = "0";
+                updatecart.ProductPrice = "0";
+            }
+
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUri);
+
+
+                //HTTP DELETE
+                var putTask = client.PutAsJsonAsync<UpdateCart>("cart/Update", updatecart);
+                putTask.Wait();
+
+                var result = putTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
