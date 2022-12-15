@@ -45,5 +45,13 @@ namespace MusicEquipmentStore.Controllers
             productViewModel.Products = await _context.Products.Where(x => x.Id == id).FirstOrDefaultAsync();
             return View(productViewModel);
         }
+
+        public async Task<IActionResult> AddProduct(int id)
+        {
+            ProductViewModel productViewMode = new ProductViewModel();
+            //productViewModel.Products = await _context.Products.Where(x => x.Id == id).Include(y=>y.CategoryId).FirstOrDefaultAsync();
+            productViewMode.Products = await _context.Products.Where(x => x.Id == id).FirstOrDefaultAsync();
+            return View(productViewMode);
+        }
     }
 }
