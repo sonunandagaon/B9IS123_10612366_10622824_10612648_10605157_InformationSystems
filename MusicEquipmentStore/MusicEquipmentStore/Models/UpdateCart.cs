@@ -8,7 +8,7 @@
         public int ProductId { get; set; }
         public string ProductQuantity { get; set; }
         public string UserName { get; set; }
-        public string UserAddress { get; set; }
+        public string? UserAddress { get; set; }
 
         public bool UpdateStatus { get; set; }
     }
