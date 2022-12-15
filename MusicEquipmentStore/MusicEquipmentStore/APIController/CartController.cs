@@ -5,6 +5,7 @@ using MusicEquipmentStore.Models;
 using MusicEquipmentStore.Services;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Policy;
 
 namespace MusicEquipmentStore.APIController
 {
@@ -61,19 +62,22 @@ namespace MusicEquipmentStore.APIController
         {
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "INSERT INTO Cart_table (Id,ProductName,ProductId,ProductPrice,Quantity,UserName,UserAddress)" +
-                "Values (@Id,@ProductName,@ProductId,@ProductPrice,@Quantity,@UserName,@UserAddress)";
+            sqlCmd.CommandText = "INSERT INTO Carts (ProductName,ProductId,ProductPrice,ProductQuantity,UserName)" +
+                "Values (@ProductName,@ProductId,@ProductPrice,@ProductQuantity,@UserName)";
             sqlCmd.Connection = myConnection;
-            sqlCmd.Parameters.AddWithValue("@Id", cart.Id);
+            // sqlCmd.Parameters.AddWithValue("@Id", cart.Id);
             sqlCmd.Parameters.AddWithValue("@ProductName", cart.ProductName);
             sqlCmd.Parameters.AddWithValue("@ProductId", cart.ProductId);
             sqlCmd.Parameters.AddWithValue("@ProductPrice", cart.ProductPrice);
-            sqlCmd.Parameters.AddWithValue("@Quantity", cart.ProductQuantity);
+            sqlCmd.Parameters.AddWithValue("@ProductQuantity", cart.ProductQuantity);
             sqlCmd.Parameters.AddWithValue("@UserName", cart.UserName);
-            sqlCmd.Parameters.AddWithValue("@UserAddress", cart.UserAddress);
+            //sqlCmd.Parameters.AddWithValue("@UserAddress", cart.UserAddress);
             myConnection.Open();
             int rowInserted = sqlCmd.ExecuteNonQuery();
             myConnection.Close();
+
+           
+
         }
 
         // DELETE api/<CartController>/5
