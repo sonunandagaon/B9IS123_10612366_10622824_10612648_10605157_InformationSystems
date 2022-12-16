@@ -65,11 +65,13 @@ namespace MusicEquipmentStore.Controllers
         public IActionResult Login(LoginViewModel loginViewModel)
         {
             if (ModelState.IsValid)
-            {
+            {                
+
                 var data = _dbContext.Users.Where(u => u.Username == loginViewModel.Username).SingleOrDefault();
                 if (data != null)
                 {
-                    var isValid = (data.Username == loginViewModel.Username && data.Password == loginViewModel.Password);
+                   string encryptedpass = HashPassword(loginViewModel.Password);
+                    var isValid = (data.Username == loginViewModel.Username && data.Password == encryptedpass);
                         if (isValid)
                     {
                         var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, loginViewModel.Username)},
@@ -114,5 +116,12 @@ namespace MusicEquipmentStore.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public static string HashPassword(string password)
+        {
+            var encryptpass = System.Text.Encoding.UTF8.GetBytes(password);
+            return System.Convert.ToBase64String(encryptpass);
+        }
+
     }
 }

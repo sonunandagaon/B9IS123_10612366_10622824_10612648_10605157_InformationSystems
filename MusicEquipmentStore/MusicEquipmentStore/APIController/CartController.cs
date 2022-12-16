@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 using MusicEquipmentStore.Models;
-using MusicEquipmentStore.Services;
 using System.Data;
 using System.Data.SqlClient;
 using System.Security.Policy;
@@ -14,13 +13,10 @@ namespace MusicEquipmentStore.APIController
     public class CartController : ControllerBase
     {
 
-        private IProductService _productService;
-
         SqlConnection myConnection = new SqlConnection();
 
-        public CartController(IProductService productService)
+        public CartController()
         {
-            _productService = productService;
             myConnection.ConnectionString = @"Server=DESKTOP-UDLAN01\SQLEXPRESS;Database=MusicEquipmentStore;Trusted_Connection=True;TrustServerCertificate=true;";
 
         }
@@ -29,7 +25,7 @@ namespace MusicEquipmentStore.APIController
         [HttpGet("GetCartItems/{username}")]
         public List<Cart> GetCartItems(string username)
         {
-            // string vl = TempData["username"];
+            
             SqlDataReader reader = null;
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
@@ -71,8 +67,7 @@ namespace MusicEquipmentStore.APIController
             sqlCmd.Parameters.AddWithValue("@ProductPrice", cart.ProductPrice);
             sqlCmd.Parameters.AddWithValue("@ProductQuantity", cart.ProductQuantity);
             sqlCmd.Parameters.AddWithValue("@UserName", cart.UserName);
-            //sqlCmd.Parameters.AddWithValue("@UserAddress", cart.UserAddress);
-            myConnection.Open();
+             myConnection.Open();
             int rowInserted = sqlCmd.ExecuteNonQuery();
             myConnection.Close();
 
