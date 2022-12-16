@@ -1,8 +1,5 @@
 ﻿@model MusicEquipmentStore.Models.ViewModel.ProductViewModel
 
-@{
-    var defaultImageURL = "../images/Equipment_Images/Dumbell/H_D.jpg";
-}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,29 +8,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INJAY FITNESS STORE</title>
 
-    <!-- main css -->
-    @*
-        <link rel="stylesheet" href="css/style.css">*@
-
-
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet"> -->
     <!-- Navbar -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Work+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 
     <!-- Footer -->
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- footer css -->
-    <!-- scripts -->
-
-    <script src="js/script.js"></script>
-    <script src="js/data.js"></script>
 </head>
 <body>
     @if (Model != null && Model.Products != null)
@@ -53,7 +36,6 @@
                 }
             </div>
             <div class="col-sm-4 product-price">
-                @*<h4>@Model.Products.Name</h4>*@
                 <p>★★★★★</p>
                 <p>
                     €@Model.Products.Price
@@ -67,17 +49,9 @@
         </div>
     }
 </body>
-
-
 </html>
 
 @section scripts{
-    @*
-        <link href="~/css/style.css" rel="stylesheet" asp-file-version="true" />*@
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="../js/data.js" type="text/javascript"></script>
-    <script src="~/js/data.js"></script>
 
-    
 }
 

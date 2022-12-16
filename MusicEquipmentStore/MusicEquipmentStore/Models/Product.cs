@@ -22,8 +22,5 @@ namespace MusicEquipmentStore.Models
 
         public string Image { get; set; } = "noimage.png";
 
-        //[NotMapped]        
-        ////[FileExtension]        
-        //public IFormFile ImageUpload { get; set; }
     }
 }

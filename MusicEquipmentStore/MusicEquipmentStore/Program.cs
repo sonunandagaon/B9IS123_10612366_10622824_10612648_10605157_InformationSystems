@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 using Microsoft.Extensions.DependencyInjection;
 using MusicEquipmentStore.Context;
-using MusicEquipmentStore.Data;
-using MusicEquipmentStore.Services;
+//using MusicEquipmentStore.Data;
+//using MusicEquipmentStore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //var connectionString = builder.Configuration.GetConnectionString("AppDb");
 builder.Services.AddDbContext<MusicEquipmentStoreContext>();
-builder.Services.AddScoped<IProductService, ProductService>();
+//builder.Services.AddScoped<IProductService, ProductService>();
 
 // Add services to the authentication
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

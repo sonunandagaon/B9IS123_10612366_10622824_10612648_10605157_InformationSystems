@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MusicEquipmentStore.Context;
-using MusicEquipmentStore.Data;
+//using MusicEquipmentStore.Data;
 using MusicEquipmentStore.Models;
 using MusicEquipmentStore.Models.ViewModel;
 using System.Diagnostics;
