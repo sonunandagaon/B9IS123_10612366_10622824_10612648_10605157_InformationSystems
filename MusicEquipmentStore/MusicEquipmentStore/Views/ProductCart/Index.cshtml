@@ -13,28 +13,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INJAY FITNESS STORE</title>
-
-    <!-- main css -->
-    @*<link rel="stylesheet" href="css/style.css">*@
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet"> -->
     <!-- Navbar -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Work+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-    <!-- Footer -->
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- footer css -->
-    <!-- scripts -->
 
     <script src="js/script.js"></script>
-    <script src="js/data.js"></script>
 </head>
 <body>
     <h1>Index</h1>
@@ -64,13 +53,14 @@
             </tr>
         }
 
-        <tr>
-            <td class="text-right" colspan="4">
-                @*<a class="btn btn-primary" asp-controller="ProductCart" asp-action="Delete">Delete from cart</a>*@
-                <a class="btn btn-danger" asp-controller="ProductCart" asp-action="Delete">Clear Cart</a>
-                @*<a class="btn btn-primary" href="#">Checkout</a>*@
-            </td>
-        </tr>
+     <tr>
+        <td class="col-sm-4">
+            <a class="btn btn-danger" asp-controller="ProductCart" asp-action="Delete">Clear Cart</a>
+        </td>
+        <td>
+            <a class="btn btn-success" onclick=" confirmAlert();">Checkout</a>
+        </td>
+    </tr>
     </table>
 
 </body>
@@ -80,15 +70,39 @@
         $('footer').empty();
        
     });
+
+
+    function confirmAlert() {
+        Swal.fire({
+            title: 'Do you want to checkout?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Checkout',
+            denyButtonText: `Don't Checkout`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire('Checked Out!', '', 'success')
+                let x = document.getElementById("modalContainer");
+                if (x.className === "modal-container") {
+                    x.className += " clicked-modal";
+                } else {
+                    x.className = "modal-container";
+                }
+            } else if (result.isDenied) {
+                Swal.fire('Item Not Reserved', '', 'info')
+                let x = document.getElementById("modalContainer");
+                if (x.className === "modal-container") {
+                    x.className += " clicked-modal";
+                } else {
+                    x.className = "modal-container";
+                }
+            }
+        })
+    }
 </script>
 </html>
 
 @section scripts{
-    @*
-        <link href="~/css/style.css" rel="stylesheet" asp-file-version="true" />*@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="../js/data.js" type="text/javascript"></script>
-    <script src="~/js/data.js"></script>
-
-
 }
