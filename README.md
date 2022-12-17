@@ -87,26 +87,7 @@ Group D – Individual Contributions
 ----------------------------------------------
 Member 1: 10612366 – Navin Kumar Singupuram
 -------------------------------------
-1.	Starting with creation of the skeleton of the project in .Net 6, added the predefined functions.
-2.	To start initially, rewritten the layout page using bootstrap, css and few cdn’s to modify the Navbar to match the design and the theme of the idea.
-3.	Have added the customized footer using Bootstrap 5 and Css 3, font awesome 
-4.	Created a Login page using Razor along with styles in Login.cshtml view.
-5.	Added the authentication and authorization logic in the home controller to implemented the session and cookie based authentication.
-6.	Worked on the Migrations with the concept of code first approach and the database first approach using the Entity Framework as middleware to connect to SQL Server.
-7.	After doing research on .Net 7 as css was not working, the new concept of .Net Framework known as .Net Razor Isolations was implemented.
-        Ex: From Style.css, the css been moved to index.cshtml.css along with styles under the Razor View.
-8.	Initially, have implemented the ajax call for post and delete method to fetch the data from db and use the web services.
-9.	Removed the Startup file which has all the patterns, dependency injections, sql connections and moved it to the Program.cs
-10.	 Have added several methods like AddSession, AddAuthentication,  AddControllersWithViews. AddRazorPages, UseStaticFiles, UseRouting , UseAuthentication, UseAuthorization in the Program.cs so the whole application can fetch the connections and work.
-11.	Migrations been added to the authentication controller and fixed the home page cshtml
-12.	Added logics to show products on screen in index controller (home page) from the database and also saving the data in the database along with client side pagination.
-13.	 Fixed the product section logic to make the home page work.
-14.	 Added the completed product detail implementation starting from the design, developing the login in the controller and showing the page perfectly.
-15.	Consuming of the Get API method in the controller added for showing the product details
-16.	Implemented the Get API service method to work with the features of the grid design on the view cart page.
-17.	Updated all the views, pages throughout the application in the last with cleaning of the code.
-18.	Sweet Alert Modal popup JQuery for the View Checkout of the products
-19.	JQuery implementation on the view cart page to shown only the Navbar not the footer 
+ 
 ----------------
 Member 2: 10622824 – Sonavva Nandagaon
 ---------------------------------
