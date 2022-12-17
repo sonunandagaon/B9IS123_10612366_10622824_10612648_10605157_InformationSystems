@@ -70,6 +70,7 @@ namespace MusicEquipmentStore.Controllers
                 var data = _dbContext.Users.Where(u => u.Username == loginViewModel.Username).SingleOrDefault();
                 if (data != null)
                 {
+                   //Password emcryption
                    string encryptedpass = HashPassword(loginViewModel.Password);
                     var isValid = (data.Username == loginViewModel.Username && data.Password == encryptedpass);
                         if (isValid)

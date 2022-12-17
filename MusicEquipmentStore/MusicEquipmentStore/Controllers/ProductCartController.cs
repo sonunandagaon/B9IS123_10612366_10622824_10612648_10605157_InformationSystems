@@ -70,8 +70,8 @@ namespace MusicEquipmentStore.Controllers
                     ProductName = productViewMode.Products.Name,
                     ProductPrice = (prodQuantity * productViewMode.Products.Price).ToString(),
                     ProductQuantity = prodQuantity.ToString(),
-                    UserName = username,
-                    UserAddress = null
+                    UserName = username
+                    //UserAddress = null
                 };
 
 
@@ -102,9 +102,9 @@ namespace MusicEquipmentStore.Controllers
                     UserName = username,
                     UpdateStatus = true,
                     ProductName = oldCart[0].ProductName,
-                    ProductId = oldCart[0].ProductId,
+                    ProductId = oldCart[0].ProductId
                     //Id = 2,
-                    UserAddress = null
+                    //UserAddress = null
                 };
                 using (var client = new HttpClient())
                 {

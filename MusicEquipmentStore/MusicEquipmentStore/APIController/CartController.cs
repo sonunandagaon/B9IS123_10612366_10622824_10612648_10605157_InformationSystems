@@ -17,7 +17,7 @@ namespace MusicEquipmentStore.APIController
 
         public CartController()
         {
-            myConnection.ConnectionString = @"Server=DESKTOP-UDLAN01\SQLEXPRESS;Database=MusicEquipmentStore;Trusted_Connection=True;TrustServerCertificate=true;";
+            myConnection.ConnectionString = @"Server=DESKTOP-DGLDM4B\MSSQLSERVER2019;Database=MusicEquipmentStore;Trusted_Connection=True;TrustServerCertificate=true;";
 
         }
 
