@@ -111,17 +111,17 @@ Group D – Individual Contributions
 ----------------------------------------------
 Member 1: 10622824 – Sonavva Nandagaon
 -------------------------------------
-* Initially as a team decided to user JSON data to show prodcuct related details for which I have added a JSON service,JSON data and a Javascript functionality to     fetch JSON data which later moved to database.
+* Initially as a team decided to user JSON data to show prodcuct related details for which added a JSON service,JSON data and a Javascript functionality to           fetch JSON data which later moved to database.
 * Product Controller with pre defined funtions has been added to add methods which helped in consuming API methods and added a search functionality to search the     product.
 * Database Context added with concept of ADO.NET and updated the connection string which helps in connecting database through controller.
 * GetProductDetails, SaveProductDetails functionality added to save and fetch data from the database but later decided to move images to the folder.
 * Ajax functionality to call GetProductDetails and then mapped to the index page.
 * ProductTable model added with required attributed to push data to the View Cart page.
-* Web API functionality was not working for which I have added a proper route configuration and services in Program.cs file.
+* Web API functionality was not working for which added a proper route configuration and services in Program.cs file.
 * Implemented AddToCart functionality to store cart related details into the database with the help of ADO.NET approach.
 * Added a Javascript functionality for the show password feature.
 * CartViewModel, SmallCartViewModel, Category and Product models added in order to help seperation of functionality.
-* In order to increase or decrease product item quantity in cart page, I have added Add and decrease methods in ProductCartController which consumes update API       method from the CartController.
+* In order to increase or decrease product item quantity in cart page, added Add and decrease methods in ProductCartController which consumes update API               method from the CartController.
 * Update API service method in the CartController has been added in order to update cart details in the database. 
 ---------------------------------
 Member 2: 10612366 – Navin Kumar Singupuram
@@ -147,24 +147,24 @@ Member 3: 10612648 - Snehal Rajendrakumar Baviskar
 * Initially added some css and html changes to implement navbar in hero page and also added.
 * Data Access Layer added and GetProductById method added to fetch product details from the database
 * Was not able to access Data Access Layer, And did some research on a start up class hence added a startup class with configuration services to make it work.
-* Other team member added product context class and with the product database model I have updated few more attributes including rating, price etc. To show more       product related information to the user.
-* To connect database with the API controller, to fetch cart related details have used ADO.NET framework I have added a proper connection string.
-* With the help of .NET framework predefined functions I have added a Product Controller, And implemented a business logic for the Get Method which is GetCartItems   which is used to fetch Cart Details from a specific user.
-* I have created a Cart Model and added required attributes to display Cart details. 
-* I have added a razor page views for Categories and CartProduct along with data binding feature from the controller with the help of models to display product in     the cart details and categories.
-* And I have added a css styling and bootstrap changes for the views Categories and CartProduct to make it more user friendly.
+* Other team member added product context class and with the product database model have updated few more attributes including rating, price etc. To show more         product related information to the user.
+* To connect database with the API controller, to fetch cart related details have used ADO.NET framework have added a proper connection string.
+* With the help of .NET framework predefined functions have added a Product Controller, And implemented a business logic for the Get Method which is GetCartItems     which is used to fetch Cart Details from a specific user.
+* Created a Cart Model and added required attributes to display Cart details. 
+* Added a razor page views for Categories and CartProduct along with data binding feature from the controller with the help of models to display product in the       cart details and categories.
+* Added a css styling and bootstrap changes for the views Categories and CartProduct to make it more user friendly.
 * Created a view for the login with the help of razor view and some html.
 * Functionality to show/hide password whenever user clicks on the eye icon so that user can view his password.
-* I have added a method in the product cart controller 'AddToCart', To consume POST API method which is create in the cart controller.
+* Added a method in the product cart controller 'AddToCart', To consume POST API method which is create in the cart controller.
 --------------------------------------
 Member 4: 10605157 - Atul Krishna Sulli Radhakrishna
 --------------------------------------
-* I have added HTML code changes for product content to show details in the Home Page.
-* I have added Product model with required attributes of product details which helps in binding data to show in the Home page.
+* Added HTML code changes for product content to show details in the Home Page.
+* Added Product model with required attributes of product details which helps in binding data to show in the Home page.
 * Code changes has been added to index method of the product controller to get all the details from the database. 
-* Initailly group has decided to have a service for performing CRUD operations and for the same reason I have added a service called Product Service which contains   Interfaces that helps in dependency injection.
-* For the Product Service I have implemented required methods which are GetProductsDetails and SaveProductDetails which helped in saving the product details and       getting the product details from database.
-* Initially as a team we thought of saving product related images into database by using file upload functionality for which I have added file upload model with       required attributes.
+* Initailly group has decided to have a service for performing CRUD operations and for the same reason have added a service called Product Service which contains   Interfaces that helps in dependency injection.
+* For the Product Service have implemented required methods which are GetProductsDetails and SaveProductDetails which helped in saving the product details and       getting the product details from database.
+* Initially as a team we thought of saving product related images into database by using file upload functionality for which have added file upload model with       required attributes.
 * Added migration script for Product_table and also fixed the Git Conflict
 * Added a CART Model which helps in binding data to show product details in the cart view page.
 * Added modifications to the view and model for the login page to resolve UI issues.
