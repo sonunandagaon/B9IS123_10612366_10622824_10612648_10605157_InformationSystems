@@ -1,8 +1,10 @@
 # B9IS123_10612366_10622824_10612648_10605157_InformationSystems
 
-Note (Login Hash): We have added the base64 hash encryption for login authentication can be validated by the User table in the database which was not included in the code during the presentation ------- Discussed with Paul in the class to add note in read me.
+* Login Credentials for Application : Username - navin , Password - 1234
 
-SQL – Have added the backup file in the folder to check all the scripts at once.
+* Note (Password base64 Hash): We have added the base64 hash encryption for login authentication can be validated by the User table in the database which was not included in the code during the presentation ------- Discussed with Paul in the class to add note in read me.
+
+SQL BackUp file provided with stpes in order to restore it for the application.
 
 Team No - D
 ------------
@@ -66,6 +68,28 @@ Step 5: On navigation to the cart view page, the products are displayed in the g
 Step 6: On click of clear button, the delete web api services are called and the data gets delete in the sql database.
 Step 7: On click of “+” and “-” button, the update web api services are called and the data gets updated in the sql database.
 Step 8: On click of view checkout button, the sweet alert modal popup JQuery is called to display a modal stating the product is reserved.
+
+
+SQL Restoration Process Steps: 
+------------------------------
+1. Go to Sql Server Management Studio and create a new Database : MusicEquipmentStore
+<img width="524" alt="image" src="https://user-images.githubusercontent.com/114439647/208297704-77cb4094-a3c9-4873-a73f-94a2487e2e44.png">
+2. Right click on the 'MusicEquipmentStore' database and click on Tasks, select Restore and select Database
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/114439647/208297844-404bc0f3-8880-410c-9310-54af79641289.png">
+3. Select Device check box and click on three dots to select file
+<img width="431" alt="image" src="https://user-images.githubusercontent.com/114439647/208302496-3c39cc26-a27b-4c59-af36-4e98bef0523f.png">
+<img width="427" alt="image" src="https://user-images.githubusercontent.com/114439647/208297950-fc64d273-0be1-4ba8-b7c7-cb72e92d15e0.png">
+4. Click on Add option and navigate to the folder where 'MusicEquipmentStore.bak' is saved.
+<img width="473" alt="image" src="https://user-images.githubusercontent.com/114439647/208298015-adeaaa5f-0e48-47b2-bc85-2a9dfa03cd5d.png">
+5. Select the 'MusicEquipmentStore.bak' file and click on 'OK' and again click on 'Ok' in the backup devices.
+<img width="364" alt="image" src="https://user-images.githubusercontent.com/114439647/208298060-f7d6a704-04aa-414b-bca9-fdcc3f6d497e.png">
+6. Navigate to the 'Options' and check mark the 'Overwrite the existing database(WITH REPLACE)' option and click on 'OK'
+<img width="429" alt="image" src="https://user-images.githubusercontent.com/114439647/208298169-99fe4fdf-e006-452b-9bb0-6ca56d572599.png">
+7. Database Restoration successful message will be displayed.
+<img width="427" alt="image" src="https://user-images.githubusercontent.com/114439647/208303157-2a733131-a097-4f2e-a62f-073e34895413.png">
+8. All the following table will be present in the Database.
+<img width="174" alt="image" src="https://user-images.githubusercontent.com/114439647/208303186-201e2ce4-3478-40b1-ba4a-e9209876111a.png">
+
 
 Attribution Report:
 -------------------------
@@ -148,4 +172,3 @@ Member 4: 10605157 - Atul Krishna Sulli Radhakrishna
 * Added a delete API method in Cart Controller class.
 * A method called ClearCart added in product cart controller to consumer delete API method for clear the cart items functionality which is specific to the user.
 * Store Encrypted password in database implemented base64 hashing technique.
-
