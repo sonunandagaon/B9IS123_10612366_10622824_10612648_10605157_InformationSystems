@@ -85,9 +85,67 @@ Attribution Report:
 
 Group D – Individual Contributions
 ----------------------------------------------
-Member 1: 10612366 – Navin Kumar Singupuram
+Member 1: 10622824 – Sonavva Nandagaon
 -------------------------------------
- 
-----------------
-Member 2: 10622824 – Sonavva Nandagaon
+* Initially as a team decided to user JSON data to show prodcuct related details for which I have added a JSON service,JSON data and a Javascript functionality to     fetch JSON data which later moved to database.
+* Product Controller with pre defined funtions has been added to add methods which helped in consuming API methods and added a search functionality to search the     product.
+* Database Context added with concept of ADO.NET and updated the connection string which helps in connecting database through controller.
+* GetProductDetails, SaveProductDetails functionality added to save and fetch data from the database but later decided to move images to the folder.
+* Ajax functionality to call GetProductDetails and then mapped to the index page.
+* ProductTable model added with required attributed to push data to the View Cart page.
+* Web API functionality was not working for which I have added a proper route configuration and services in Program.cs file.
+* Implemented AddToCart functionality to store cart related details into the database with the help of ADO.NET approach.
+* Added a Javascript functionality for the show password feature.
+* CartViewModel, SmallCartViewModel, Category and Product models added in order to help seperation of functionality.
+* In order to increase or decrease product item quantity in cart page, I have added Add and decrease methods in ProductCartController which consumes update API       method from the CartController.
+* Update API service method in the CartController has been added in order to update cart details in the database. 
 ---------------------------------
+Member 2: 10612366 – Navin Kumar Singupuram
+---------------------------------
+* To start initially, rewritten the layout page using bootstrap, css and few cdn’s to modify the Navbar to match the design and the theme of the idea.
+* Have added the customized footer using Bootstrap 5 and Css 3, font awesome
+* Created a Login page using Razor along with styles in Login.cshtml view.
+* Added the authentication and authorization logic in the home controller to implemented the session and cookie based authentication.
+* Worked on the Migrations with the concept of code first approach and the database first approach using the Entity Framework as middleware to connect to SQL         Server.
+* Initially, as a team we decided implementing ajax calls for which have added post and delete method to fetch the data from db and use the web services.
+* As discussed with team, Removed the Startup file which has all the patterns, dependency injections, sql connections and moved it to the Program.cs
+* Added Authentication and Authorization techniques to the login page.
+* Partially added Migrations to the authentication controller and fixed the home page cshtml.
+* Added logics to show products on screen in index controller (home page) from the database and also saving the data in the database.
+* Partially added the completed product detail implementation starting from the design, developing the login in the controller and showing the page perfectly.
+* Consuming of the Get API method in the controller added for showing the product details
+* Implemented the Get API service method to work with the features of the grid design on the view cart page.
+* Sweet Alert Modal popup JQuery for the View Checkout of the products.
+* JQuery implementation on the view cart page to shown only the Navbar not the footer.
+------------------------------------
+Member 3: 10612648 - Snehal Rajendrakumar Baviskar
+------------------------------------
+* Initially added some css and html changes to implement navbar in hero page and also added.
+* Data Access Layer added and GetProductById method added to fetch product details from the database
+* Was not able to access Data Access Layer, And did some research on a start up class hence added a startup class with configuration services to make it work.
+* Other team member added product context class and with the product database model I have updated few more attributes including rating, price etc. To show more       product related information to the user.
+* To connect database with the API controller, to fetch cart related details have used ADO.NET framework I have added a proper connection string.
+* With the help of .NET framework predefined functions I have added a Product Controller, And implemented a business logic for the Get Method which is GetCartItems   which is used to fetch Cart Details from a specific user.
+* I have created a Cart Model and added required attributes to display Cart details. 
+* I have added a razor page views for Categories and CartProduct along with data binding feature from the controller with the help of models to display product in     the cart details and categories.
+* And I have added a css styling and bootstrap changes for the views Categories and CartProduct to make it more user friendly.
+* Created a view for the login with the help of razor view and some html.
+* Functionality to show/hide password whenever user clicks on the eye icon so that user can view his password.
+* I have added a method in the product cart controller 'AddToCart', To consume POST API method which is create in the cart controller.
+--------------------------------------
+Member 4: 10605157 - Atul Krishna Sulli Radhakrishna
+--------------------------------------
+* I have added HTML code changes for product content to show details in the Home Page.
+* I have added Product model with required attributes of product details which helps in binding data to show in the Home page.
+* Code changes has been added to index method of the product controller to get all the details from the database. 
+* Initailly group has decided to have a service for performing CRUD operations and for the same reason I have added a service called Product Service which contains   Interfaces that helps in dependency injection.
+* For the Product Service I have implemented required methods which are GetProductsDetails and SaveProductDetails which helped in saving the product details and       getting the product details from database.
+* Initially as a team we thought of saving product related images into database by using file upload functionality for which I have added file upload model with       required attributes.
+* Added migration script for Product_table and also fixed the Git Conflict
+* Added a CART Model which helps in binding data to show product details in the cart view page.
+* Added modifications to the view and model for the login page to resolve UI issues.
+* Client side Pagination has been added in order to make page more user friendly when there are multiple products.
+* Added a delete API method in Cart Controller class.
+* A method called ClearCart added in product cart controller to consumer delete API method for clear the cart items functionality which is specific to the user.
+* Store Encrypted password in database implemented base64 hashing technique.
+
